@@ -242,25 +242,26 @@ document.addEventListener("DOMContentLoaded ", () =>
       imageEl.alt.indexOf(".jpg") === -1
     )
       return;
-
-    const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
-    console.log("нашел пары: ", imageEl, " -- " + imageUrl);
-    try {
-      new hoverEffect({
-        parent: imageEl.parent,
-        intensity: imageEl.dataset.intensity || "0.2",
-        speedIn: imageEl.dataset.speedin || "1.6",
-        speedOut: imageEl.dataset.speedout || "1.6",
-        easing: imageEl.dataset.easing || undefined,
-        hover: imageEl.dataset.hover || undefined,
-        image1: imageEl.getAttribute("src"),
-        image2: imageUrl,
-        displacementImage:
-          textureUrl ||
-          "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
-      });
-    } catch (e) {
-      console.log(e, "проблемы с", imageEl);
-    }
+    imageEl.addEventListener("load", function () {
+      const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
+      console.log("нашел пары: ", imageEl, " -- " + imageUrl);
+      try {
+        new hoverEffect({
+          parent: imageEl.parent,
+          intensity: imageEl.dataset.intensity || "0.2",
+          speedIn: imageEl.dataset.speedin || "1.6",
+          speedOut: imageEl.dataset.speedout || "1.6",
+          easing: imageEl.dataset.easing || undefined,
+          hover: imageEl.dataset.hover || undefined,
+          image1: imageEl.getAttribute("src"),
+          image2: imageUrl,
+          displacementImage:
+            textureUrl ||
+            "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
+        });
+      } catch (e) {
+        console.log(e, "проблемы с", imageEl);
+      }
+    });
   })
 );
