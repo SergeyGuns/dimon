@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    const absolutePath = 'https://sergeyguns.github.io/dimon/threejs/pair-img/'
+    const images = [
+        '1-1.jpg',
+        '1-2.jpg',
+        '2-1.jpg',
+        '2-2.jpg'
+    ]
+</script>
+<body>
+    <div class='content'></div>
+    <script>
+        window.wrapper.innerHTML = images.map(image => {
+            return `<div><input type='text' value='${absolutePath}${image}'><img src='${absolutePath}${image}'/></div>`
+        })
+    </script>
+</body>
+</html>
