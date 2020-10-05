@@ -235,6 +235,7 @@ console.log(`
     `);
 Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
   const imgs = Array.from(el.querySelectorAll(".tn-atom__img"));
+  console.log({ imgs });
   if (
     imgs[0] === undefined ||
     imgs[0].getAttribute("alt").indexOf("jpg") === -1
