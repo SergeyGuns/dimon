@@ -16,7 +16,8 @@
 <body>
     <div class='content'></div>
     <script>
-        window.wrapper.innerHTML = images.map(image => {
+        const contentEl = document.querySelector('.content')
+        contentEl.innerHTML = images.map(image => {
             return `<div><input type='text' value='${absolutePath}${image}'><img src='${absolutePath}${image}'/></div>`
         })
     </script>
