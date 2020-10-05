@@ -248,7 +248,7 @@ Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
     console.log("нашел пары: ", imageEl, " -- " + imageUrl);
     try {
       new hoverEffect({
-        parent: imageEl.parent,
+        parent: imageEl.parentNode,
         intensity: imageEl.dataset.intensity || "0.2",
         speedIn: imageEl.dataset.speedin || "1.6",
         speedOut: imageEl.dataset.speedout || "1.6",
