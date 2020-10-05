@@ -244,8 +244,6 @@ Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
   )
     return;
 
-  imgs[0].style.position = "absolute";
-  imgs[0].style.opacity = "0.001";
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
   console.log("нашел пары: ", imgs[0], " -- " + imageUrl);
   try {
