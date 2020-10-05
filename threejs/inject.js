@@ -248,11 +248,11 @@ document.addEventListener("load", () =>
     try {
       new hoverEffect({
         parent: imageEl.parent,
-        intensity: el.dataset.intensity || "0.2",
-        speedIn: el.dataset.speedin || "1.6",
-        speedOut: el.dataset.speedout || "1.6",
-        easing: el.dataset.easing || undefined,
-        hover: el.dataset.hover || undefined,
+        intensity: imageEl.dataset.intensity || "0.2",
+        speedIn: imageEl.dataset.speedin || "1.6",
+        speedOut: imageEl.dataset.speedout || "1.6",
+        easing: imageEl.dataset.easing || undefined,
+        hover: imageEl.dataset.hover || undefined,
         image1: imageEl.getAttribute("src"),
         image2: imageUrl,
         displacementImage:
@@ -260,7 +260,7 @@ document.addEventListener("load", () =>
           "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
       });
     } catch (e) {
-      console.log(e, "проблемы с", el);
+      console.log(e, "проблемы с", imageEl);
     }
   })
 );
