@@ -115,7 +115,10 @@ var hoverEffect = function (opts) {
 
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0xffffff, 0.0);
-  renderer.setSize(parent.parent.offsetWidth, parent.parent.offsetHeight);
+  renderer.setSize(
+    parent.parent.parent.offsetWidth,
+    parent.parent.parent.offsetHeight
+  );
   parent.appendChild(renderer.domElement);
 
   // var addToGPU = function(t) {
