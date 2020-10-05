@@ -217,6 +217,7 @@ imagesLoaded(document.querySelectorAll("img"), () => {
 Array.from(document.querySelectorAll(".tn-atom__img")).forEach((el) => {
   const imgs = Array.from(el.querySelectorAll("img"));
   if (imgs[0].getAttribute("alt").indexOf("github") === -1) return;
+  imgs[0].hidden = true;
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
   new hoverEffect({
     parent: el,
