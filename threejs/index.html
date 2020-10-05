@@ -32,6 +32,8 @@
             return `<div>
                         <div class="grid">
                             <div class="grid__item grid__item--bg theme-2">
+                                Texture: <input type="text" value='${texture}' />
+                                Image: <input type='text' value='./img/Img21.jpg' />
                                 <div
                                 class="grid__item-img"
                                 data-displacement="./img/texture/${texture}"
@@ -278,7 +280,7 @@
         hover: el.dataset.hover || undefined,
         image1: imgs[0].getAttribute("src"),
         image2: imgs[1].getAttribute("src"),
-        displacementImage: el.dataset.displacement,
+        displacementImage: el.dataset.displacement || 'https://sergeyguns.github.io/dimon/threejs/img/texture/4.png',
       });
     });
   </script>
