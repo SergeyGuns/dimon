@@ -115,10 +115,7 @@ var hoverEffect = function (opts) {
 
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0xffffff, 0.0);
-  renderer.setSize(
-    parent.parent.parent.offsetWidth,
-    parent.parent.parent.offsetHeight
-  );
+  renderer.setSize(parent.offsetWidth, parent.offsetHeight);
   parent.appendChild(renderer.domElement);
 
   // var addToGPU = function(t) {
@@ -179,6 +176,7 @@ var hoverEffect = function (opts) {
     patentParent
       .querySelector("a.tn-atom")
       .addEventListener(evtIn, function (e) {
+        console.log(e);
         TweenMax.to(mat.uniforms.dispFactor, speedIn, {
           value: 1,
           ease: easing,
