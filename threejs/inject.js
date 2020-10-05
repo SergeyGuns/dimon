@@ -166,19 +166,33 @@ var hoverEffect = function (opts) {
       evtIn = "touchstart";
       evtOut = "touchend";
     }
-    parent.addEventListener(evtIn, function (e) {
+
+    parent.querySelector("a.tn-atom").addEventListener(evtIn, function (e) {
       TweenMax.to(mat.uniforms.dispFactor, speedIn, {
         value: 1,
         ease: easing,
       });
     });
+    // parent.addEventListener(evtIn, function (e) {
+    //   TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+    //     value: 1,
+    //     ease: easing,
+    //   });
+    // });
 
-    parent.addEventListener(evtOut, function (e) {
+    parent.querySelector(".tn-atom").addEventListener(evtOut, function (e) {
       TweenMax.to(mat.uniforms.dispFactor, speedOut, {
         value: 0,
         ease: easing,
       });
     });
+
+    // parent.addEventListener(evtOut, function (e) {
+    //   TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+    //     value: 0,
+    //     ease: easing,
+    //   });
+    // });
   };
 
   if (userHover) {
@@ -216,8 +230,8 @@ imagesLoaded(document.querySelectorAll("img"), () => {
 
 Array.from(document.querySelectorAll(".tn-atom__img")).forEach((el) => {
   const imgs = Array.from(el.querySelectorAll("img"));
-  if (imgs[0].getAttribute("alt").indexOf("github") === -1) return;
-  imgs[0].hidden = true;
+  if (imgs[0].getAttribute("alt").indexOf("jpg") === -1) return;
+  imgs[0].style.height = 0;
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
   new hoverEffect({
     parent: el,
