@@ -234,26 +234,26 @@ console.log(`
     alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
     текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
     `);
-Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
+Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
   const imgs = Array.from(el.querySelectorAll(".tn-atom__img"));
   if (
-    imgs[0] === undefined ||
-    imgs[0].alt === null ||
-    imgs[0].alt.indexOf(".jpg") === -1
+    imageEl === undefined ||
+    imageEl.alt === null ||
+    imageEl.alt.indexOf(".jpg") === -1
   )
     return;
 
-  const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
-  console.log("нашел пары: ", imgs[0], " -- " + imageUrl);
+  const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
+  console.log("нашел пары: ", imageEl, " -- " + imageUrl);
   try {
     new hoverEffect({
-      parent: el,
+      parent: imageEl.parent,
       intensity: el.dataset.intensity || "0.2",
       speedIn: el.dataset.speedin || "1.6",
       speedOut: el.dataset.speedout || "1.6",
       easing: el.dataset.easing || undefined,
       hover: el.dataset.hover || undefined,
-      image1: imgs[0].getAttribute("src"),
+      image1: imageEl.getAttribute("src"),
       image2: imageUrl,
       displacementImage:
         textureUrl ||
