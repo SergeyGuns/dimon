@@ -263,5 +263,6 @@ Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
     } catch (e) {
       console.log(e, "проблемы с", imageEl);
     }
+    imageEl.style.height = 0;
   });
 });
