@@ -234,35 +234,34 @@ console.log(`
     alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
     текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
     `);
-document.addEventListener("DOMContentLoaded ", () =>
-  Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
-    if (
-      imageEl === undefined ||
-      imageEl.alt === null ||
-      imageEl.alt.indexOf(".jpg") === -1
-    )
-      return;
-    console.log(imageEl);
-    imageEl.addEventListener("load", function () {
-      const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
-      console.log("нашел пары: ", imageEl, " -- " + imageUrl);
-      try {
-        new hoverEffect({
-          parent: imageEl.parent,
-          intensity: imageEl.dataset.intensity || "0.2",
-          speedIn: imageEl.dataset.speedin || "1.6",
-          speedOut: imageEl.dataset.speedout || "1.6",
-          easing: imageEl.dataset.easing || undefined,
-          hover: imageEl.dataset.hover || undefined,
-          image1: imageEl.getAttribute("src"),
-          image2: imageUrl,
-          displacementImage:
-            textureUrl ||
-            "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
-        });
-      } catch (e) {
-        console.log(e, "проблемы с", imageEl);
-      }
-    });
-  })
-);
+
+Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
+  if (
+    imageEl === undefined ||
+    imageEl.alt === null ||
+    imageEl.alt.indexOf(".jpg") === -1
+  )
+    return;
+  console.log(imageEl);
+  imageEl.addEventListener("load", function () {
+    const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
+    console.log("нашел пары: ", imageEl, " -- " + imageUrl);
+    try {
+      new hoverEffect({
+        parent: imageEl.parent,
+        intensity: imageEl.dataset.intensity || "0.2",
+        speedIn: imageEl.dataset.speedin || "1.6",
+        speedOut: imageEl.dataset.speedout || "1.6",
+        easing: imageEl.dataset.easing || undefined,
+        hover: imageEl.dataset.hover || undefined,
+        image1: imageEl.getAttribute("src"),
+        image2: imageUrl,
+        displacementImage:
+          textureUrl ||
+          "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
+      });
+    } catch (e) {
+      console.log(e, "проблемы с", imageEl);
+    }
+  });
+});
