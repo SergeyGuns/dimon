@@ -235,7 +235,11 @@ console.log(`
     `);
 Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
   const imgs = Array.from(el.querySelectorAll(".tn-atom__img"));
-  if (!imgs[0] && imgs[0].getAttribute("alt").indexOf("jpg") === -1) return;
+  if (
+    imgs[0] === undefined ||
+    imgs[0].getAttribute("alt").indexOf("jpg") === -1
+  )
+    return;
 
   imgs[0].style.height = 0;
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
