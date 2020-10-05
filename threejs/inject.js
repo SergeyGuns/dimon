@@ -166,44 +166,34 @@ var hoverEffect = function (opts) {
       evtIn = "touchstart";
       evtOut = "touchend";
     }
-    let patentParent = parent;
-    while (
-      patentParent.querySelector("a.tn-atom").length === 0 &&
-      patentParent
-    ) {
-      patentParent = patentParent.parent;
-    }
-    patentParent
-      .querySelector("a.tn-atom")
-      .addEventListener(evtIn, function (e) {
-        console.log(e);
-        TweenMax.to(mat.uniforms.dispFactor, speedIn, {
-          value: 1,
-          ease: easing,
-        });
-      });
-    // parent.addEventListener(evtIn, function (e) {
+    // parent.querySelector("a.tn-atom").addEventListener(evtIn, function (e) {
+    //   console.log(e);
     //   TweenMax.to(mat.uniforms.dispFactor, speedIn, {
     //     value: 1,
     //     ease: easing,
     //   });
     // });
 
-    patentParent
-      .querySelector("a.tn-atom")
-      .addEventListener(evtOut, function (e) {
-        TweenMax.to(mat.uniforms.dispFactor, speedOut, {
-          value: 0,
-          ease: easing,
-        });
+    parent.addEventListener(evtIn, function (e) {
+      TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+        value: 1,
+        ease: easing,
       });
+    });
 
-    // parent.addEventListener(evtOut, function (e) {
+    // parent.querySelector("a.tn-atom").addEventListener(evtOut, function (e) {
     //   TweenMax.to(mat.uniforms.dispFactor, speedOut, {
     //     value: 0,
     //     ease: easing,
     //   });
     // });
+
+    parent.addEventListener(evtOut, function (e) {
+      TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+        value: 0,
+        ease: easing,
+      });
+    });
   };
 
   if (userHover) {
