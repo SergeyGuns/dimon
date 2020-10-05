@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded ", () =>
       imageEl.alt.indexOf(".jpg") === -1
     )
       return;
+    console.log(imageEl);
     imageEl.addEventListener("load", function () {
       const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
       console.log("нашел пары: ", imageEl, " -- " + imageUrl);
