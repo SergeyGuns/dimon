@@ -234,7 +234,7 @@ console.log(`
     alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
     текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
     `);
-document.addEventListener("load", () =>
+document.addEventListener("DOMContentLoaded ", () =>
   Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
     if (
       imageEl === undefined ||
