@@ -74,6 +74,8 @@ var hoverEffect = function (opts) {
     opts.displacementImage || console.warn("displacement image missing");
   var image1 = opts.image1 || console.warn("first image missing");
   var image2 = opts.image2 || console.warn("second image missing");
+  var hoverEl = opts.hoverEl || console.warn("miss hover el");
+  if (!hoverEl) hoverEl = parent;
   var intensity = opts.intensity || 1;
   var speedIn = opts.speedIn || 1.6;
   var speedOut = opts.speedOut || 1.2;
@@ -116,6 +118,8 @@ var hoverEffect = function (opts) {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0xffffff, 0.0);
   renderer.domElement.style.position = "absolute";
+  renderer.domElement.style.top = "0";
+  renderer.domElement.style.left = "0";
   renderer.setSize(parent.offsetWidth, parent.offsetHeight);
   parent.appendChild(renderer.domElement);
 
@@ -174,8 +178,13 @@ var hoverEffect = function (opts) {
     //     ease: easing,
     //   });
     // });
-
-    parent.addEventListener(evtIn, function (e) {
+    // parent.addEventListener(evtIn, function (e) {
+    //     TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+    //         value: 1,
+    //         ease: easing,
+    //     });
+    // });
+    hoverEl.addEventListener(evtIn, function (e) {
       TweenMax.to(mat.uniforms.dispFactor, speedIn, {
         value: 1,
         ease: easing,
@@ -189,7 +198,7 @@ var hoverEffect = function (opts) {
     //   });
     // });
 
-    parent.addEventListener(evtOut, function (e) {
+    hoverEl.addEventListener(evtOut, function (e) {
       TweenMax.to(mat.uniforms.dispFactor, speedOut, {
         value: 0,
         ease: easing,
@@ -231,8 +240,8 @@ imagesLoaded(document.querySelectorAll("img"), () => {
 });
 
 console.log(`
-    если нету пар то в alt картинке должен быть url на картинку и url на тектуру разделенные "|" \n 
-    alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
+    если нету пар то в alt картинке должен быть url на картинку и url на тектуру разделенные href из кнопки для ховера "|" \n 
+    alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|#popup:loreal|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
     текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
     `);
 
@@ -245,10 +254,12 @@ Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
     return;
   console.log(imageEl);
   imageEl.addEventListener("load", function () {
-    const [imageUrl, textureUrl] = imageEl.getAttribute("alt").split("|");
+    const [imageUrl, href, textureUrl] = imageEl.getAttribute("alt").split("|");
+
     console.log("нашел пары: ", imageEl, " -- " + imageUrl);
     try {
       new hoverEffect({
+        hoverEl: document.querySelector("a[href=" + href + "]"),
         parent: imageEl.parentElement,
         intensity: imageEl.dataset.intensity || "0.2",
         speedIn: imageEl.dataset.speedin || "1.6",
