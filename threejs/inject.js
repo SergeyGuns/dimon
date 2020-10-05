@@ -238,8 +238,8 @@ Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
   console.log({ imgs });
   if (
     imgs[0] === undefined ||
-    imgs[0].getAttribute("alt") === null ||
-    imgs[0].getAttribute("alt").indexOf("jpg") === -1
+    imgs[0].alt === null ||
+    imgs[0].alt.indexOf("jpg") === -1
   )
     return;
 
