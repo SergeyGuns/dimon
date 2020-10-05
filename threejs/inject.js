@@ -228,11 +228,18 @@ imagesLoaded(document.querySelectorAll("img"), () => {
   document.body.classList.remove("loading");
 });
 
-Array.from(document.querySelectorAll(".tn-atom__img")).forEach((el) => {
-  const imgs = Array.from(el.querySelectorAll("img"));
+console.log(`
+    если нету пар то в alt картинке должен быть url на картинку и url на тектуру разделенные "|" \n 
+    alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
+    текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
+    `);
+Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
+  const imgs = Array.from(el.querySelectorAll(".tn-atom__img"));
   if (imgs[0].getAttribute("alt").indexOf("jpg") === -1) return;
+
   imgs[0].style.height = 0;
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
+  console.log("нашел пары: " + imgs[0] + " -- " + imageUrl);
   new hoverEffect({
     parent: el,
     intensity: el.dataset.intensity || "0.2",
