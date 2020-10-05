@@ -239,24 +239,28 @@ Array.from(document.querySelectorAll(".tn-atom")).forEach((el) => {
   if (
     imgs[0] === undefined ||
     imgs[0].alt === null ||
-    imgs[0].alt.indexOf("jpg") === -1
+    imgs[0].alt.indexOf(".jpg") === -1
   )
     return;
 
   imgs[0].style.height = 0;
   const [imageUrl, textureUrl] = imgs[0].getAttribute("alt").split("|");
-  console.log("нашел пары: " + imgs[0] + " -- " + imageUrl);
-  new hoverEffect({
-    parent: el,
-    intensity: el.dataset.intensity || "0.2",
-    speedIn: el.dataset.speedin || "1.6",
-    speedOut: el.dataset.speedout || "1.6",
-    easing: el.dataset.easing || undefined,
-    hover: el.dataset.hover || undefined,
-    image1: imgs[0].getAttribute("src"),
-    image2: imageUrl,
-    displacementImage:
-      textureUrl ||
-      "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
-  });
+  console.log("нашел пары: ", imgs[0], " -- " + imageUrl);
+  try {
+    new hoverEffect({
+      parent: el,
+      intensity: el.dataset.intensity || "0.2",
+      speedIn: el.dataset.speedin || "1.6",
+      speedOut: el.dataset.speedout || "1.6",
+      easing: el.dataset.easing || undefined,
+      hover: el.dataset.hover || undefined,
+      image1: imgs[0].getAttribute("src"),
+      image2: imageUrl,
+      displacementImage:
+        textureUrl ||
+        "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
+    });
+  } catch (e) {
+    console.log(e, "проблемы с", el);
+  }
 });
