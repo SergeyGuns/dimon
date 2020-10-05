@@ -201,7 +201,7 @@ var hoverEffect = function (opts) {
   }
 
   window.addEventListener("resize", function (e) {
-    renderer.setSize(patentParent.offsetWidth, patentParent.offsetHeight);
+    renderer.setSize(parent.offsetWidth, patent.offsetHeight);
   });
 
   this.next = function () {
