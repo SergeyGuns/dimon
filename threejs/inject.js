@@ -115,6 +115,7 @@ var hoverEffect = function (opts) {
 
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0xffffff, 0.0);
+  renderer.domElement.style.position = "absolute";
   renderer.setSize(parent.offsetWidth, parent.offsetHeight);
   parent.appendChild(renderer.domElement);
 
