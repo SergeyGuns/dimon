@@ -242,7 +242,8 @@ imagesLoaded(document.querySelectorAll("img"), () => {
 console.log(`
     если нету пар то в alt картинке должен быть url на картинку и url на тектуру разделенные href из кнопки для ховера "|" \n 
     alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-1.jpg|https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|#popup:loreal|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
-    текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
+    текстуру можно опустить и убрать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
+    тоже самое и с кнопкой ховера, тогда ховер будет по радителю картинки.
     `);
 
 Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
