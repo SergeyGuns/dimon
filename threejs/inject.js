@@ -241,7 +241,7 @@ imagesLoaded(document.querySelectorAll("img"), () => {
 
 console.log(`
     если нету пар то в alt картинке должен быть url на картинку и url на тектуру разделенные href из кнопки для ховера "|" \n 
-    alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|#popup:loreal|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
+    alt="https://sergeyguns.github.io/dimon/threejs/pair-img/1-1.jpg|https://sergeyguns.github.io/dimon/threejs/pair-img/1-2.jpg|#popup:loreal|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
     текстуру можно опустить и брать разделитель, по умолчанию будет https://sergeyguns.github.io/dimon/threejs/img/texture/4.png
     `);
 
@@ -254,9 +254,11 @@ Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
     return;
   console.log(imageEl);
   imageEl.addEventListener("load", function () {
-    const [imageUrl, href, textureUrl] = imageEl.getAttribute("alt").split("|");
+    const [imageUrl1, imageUrl2, href, textureUrl] = imageEl
+      .getAttribute("alt")
+      .split("|");
 
-    console.log("нашел пары: ", imageEl, " -- " + imageUrl);
+    console.log("нашел пары: ", imageUrl1, " -- " + imageUrl2);
     try {
       new hoverEffect({
         hoverEl: document.querySelector('a[href="' + href + '"]'),
@@ -266,8 +268,8 @@ Array.from(document.querySelectorAll(".tn-atom__img")).forEach((imageEl) => {
         speedOut: imageEl.dataset.speedout || "1.6",
         easing: imageEl.dataset.easing || undefined,
         hover: imageEl.dataset.hover || undefined,
-        image1: imageEl.getAttribute("src"),
-        image2: imageUrl,
+        image1: imageUrl1,
+        image2: imageUrl2,
         displacementImage:
           textureUrl ||
           "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png",
