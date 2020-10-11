@@ -1,11 +1,44 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <img src="./pairs/01_1.jpg" alt="">
-    <img src="./pairs/01_2.jpg" alt="">
-</body>
+  </head>
+  <body>
+    <div class="content"></div>
+    <script>
+      const imagesPath = "https://sergeyguns.github.io/dimon/pairs/";
+      const images = [
+        "01_1.jpg",
+        "01_2.jpg",
+        "02_1.jpg",
+        "02_2.jpg",
+        "03_1.jpg",
+        "03_2.jpg",
+        "04_1.jpg",
+        "04_2.jpg",
+        "05_1.jpg",
+        "05_2.jpg",
+        "06_1.jpg",
+        "06_2.jpg",
+        "07_1.jpg",
+        "07_2.jpg",
+        "08_1.jpg",
+        "08_2.jpg",
+        "09_1.jpg",
+        "09_2.jpg",
+      ];
+      const getImagesHtml = (images) =>
+        images
+          .map((img) => {
+            `
+          <code>url:${imagesPath + img}</code>
+          <img src="${imagesPath + img}" alt="">
+        `;
+          })
+          .join("\n");
+
+      document.querySelector(".content").innerHTML = getImagesHtml(images);
+    </script>
+  </body>
 </html>
