@@ -30,13 +30,13 @@
       ];
       const getImagesHtml = (images) =>
         images
-          .map((img) => {
-            `
-          <code>url:${imagesPath + img}</code>
-          <img src="${imagesPath + img}" alt="">
-        `;
-          })
-          .join("\n");
+          .map(
+            (img) =>
+              `<code>url:${imagesPath + img}</code><img src="${
+                imagesPath + img
+              }" alt=""><br/>`
+          )
+          .join("");
 
       document.querySelector(".content").innerHTML = getImagesHtml(images);
     </script>
