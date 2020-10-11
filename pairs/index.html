@@ -11,20 +11,28 @@
       const images = [
         "01_1.jpg",
         "01_2.jpg",
+        "-",
         "02_1.jpg",
         "02_2.jpg",
+        "-",
         "03_1.jpg",
         "03_2.jpg",
+        "-",
         "04_1.jpg",
         "04_2.jpg",
+        "-",
         "05_1.jpg",
         "05_2.jpg",
+        "-",
         "06_1.jpg",
         "06_2.jpg",
+        "-",
         "07_1.jpg",
         "07_2.jpg",
+        "-",
         "08_1.jpg",
         "08_2.jpg",
+        "-",
         "09_1.jpg",
         "09_2.jpg",
       ];
@@ -32,7 +40,7 @@
         images
           .map(
             (img) =>
-              `<code>url:${imagesPath + img}</code><img src="${
+              img === '-' ? `<hr/>`:`<code>url:${imagesPath + img}</code><img src="${
                 imagesPath + img
               }" alt=""><br/>`
           )
