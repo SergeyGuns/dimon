@@ -1,0 +1,1 @@
+"https://sergeyguns.github.io/dimon/pairs/01-1.jpg|https://sergeyguns.github.io/dimon/pairs/01-2.jpg|#popup:loreal|https://sergeyguns.github.io/dimon/threejs/img/texture/4.png"
