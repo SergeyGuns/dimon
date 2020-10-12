@@ -53,7 +53,7 @@
         ["01.png", "02.png"],
       ];
       const getImagesHtml = (images, popupBtns) =>
-        imagePairs.map(
+        images.map(
           ([img1, img2], index) =>
             `<hr/><code>${imagesPath + img1}|${imagesPath + img2}|${
               popupBtns[index]
