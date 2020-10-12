@@ -4,54 +4,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        img {
-            width: 100%;
-        }
+      img {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
     <div class="content"></div>
     <script>
+      const texturePath =
+        "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png";
       const imagesPath = "https://sergeyguns.github.io/dimon/pairs/";
-      const images = [
-        "01_1.jpg",
-        "01_2.jpg",
-        "-",
-        "02_1.jpg",
-        "02_2.jpg",
-        "-",
-        "03_1.jpg",
-        "03_2.jpg",
-        "-",
-        "04_1.jpg",
-        "04_2.jpg",
-        "-",
-        "05_1.jpg",
-        "05_2.jpg",
-        "-",
-        "06_1.jpg",
-        "06_2.jpg",
-        "-",
-        "07_1.jpg",
-        "07_2.jpg",
-        "-",
-        "08_1.jpg",
-        "08_2.jpg",
-        "-",
-        "09_1.jpg",
-        "09_2.jpg",
+      const imagePairs = [
+        ["01_1.jpg", "01_2.jpg"],
+        ["02_1.jpg", "02_2.jpg"],
+        ["03_1.jpg", "03_2.jpg"],
+        ["04_1.jpg", "04_2.jpg"],
+        ["05_1.jpg", "05_2.jpg"],
+        ["06_1.jpg", "06_2.jpg"],
+        ["07_1.jpg", "07_2.jpg"],
+        ["08_1.jpg", "08_2.jpg"],
+        ["09_1.jpg", "09_2.jpg"],
       ];
       const getImagesHtml = (images) =>
-        images
-          .map(
-            (img) =>
-              img === '-' ? `<hr/>`:`<code>url:${imagesPath + img}</code><img src="${
-                imagesPath + img
-              }" alt=""><br/>`
-          )
-          .join("");
+        imagePairs.map(
+          ([img1, img2]) =>
+            `${imagesPath + img1}|${imagesPath + img2}|[popup-href]|${texturePath}`
+        );
 
       document.querySelector(".content").innerHTML = getImagesHtml(images);
     </script>
+    <code></code>
   </body>
 </html>
