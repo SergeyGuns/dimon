@@ -29,11 +29,10 @@
       const getImagesHtml = (images) =>
         imagePairs.map(
           ([img1, img2]) =>
-            `${imagesPath + img1}|${imagesPath + img2}|[popup-href]|${texturePath}`
+            `<hr/><code>${imagesPath + img1}|${imagesPath + img2}|[popup-href]|${texturePath}</code><img src="${imagesPath+img1}" alt=""><img src="${imagesPath+img2}" alt="">`
         );
 
       document.querySelector(".content").innerHTML = getImagesHtml(images);
     </script>
-    <code></code>
   </body>
 </html>
