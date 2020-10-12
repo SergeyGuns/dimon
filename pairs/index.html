@@ -15,6 +15,17 @@
       const texturePath =
         "https://sergeyguns.github.io/dimon/threejs/img/texture/4.png";
       const imagesPath = "https://sergeyguns.github.io/dimon/pairs/";
+      const popupBtns = [
+        "#popup:loreal",
+        "#popup:vkontakte",
+        "#popup:mvideo",
+        "#popup:huawei",
+        "#popup:MONASTYREV",
+        "#popup:MONASTYREVpreroll",
+        "#popup:Perekrestok",
+        "#popup:mvideo2",
+        "#popup:mvideosamsung"
+      ]
       const imagePairs = [
         ["01_1.jpg", "01_2.jpg"],
         ["02_1.jpg", "02_2.jpg"],
@@ -26,13 +37,13 @@
         ["08_1.jpg", "08_2.jpg"],
         ["09_1.jpg", "09_2.jpg"],
       ];
-      const getImagesHtml = (images) =>
+      const getImagesHtml = (images,popupBtns) =>
         imagePairs.map(
-          ([img1, img2]) =>
-            `<hr/><code>${imagesPath + img1}|${imagesPath + img2}|[popup-href]|${texturePath}</code><img src="${imagesPath+img1}" alt=""><img src="${imagesPath+img2}" alt="">`
+          ([img1, img2],index) =>
+            `<hr/><code>${imagesPath + img1}|${imagesPath + img2}|${popupBtns[index]}|${texturePath}</code><img src="${imagesPath+img1}" alt=""><img src="${imagesPath+img2}" alt="">`
         );
 
-      document.querySelector(".content").innerHTML = getImagesHtml(imagePairs);
+      document.querySelector(".content").innerHTML = getImagesHtml(imagePairs, popupBtns);
     </script>
   </body>
 </html>
