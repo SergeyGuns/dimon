@@ -35,7 +35,7 @@ export default function Home() {
                 backgroundColor: "white",
               }}
             >
-              <div className="img__text">
+              <div data-aos="fade-up" className="img__text">
                 <h2 style={{ color: "black" }}>
                   HELLO.
                   <br />
