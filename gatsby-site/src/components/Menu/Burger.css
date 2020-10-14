@@ -1,0 +1,42 @@
+.burger {
+    position: fixed;
+    top: 0;
+    right: 1vw;
+    height: 5vw;
+    width: 5vw;
+    background-color: #000;
+}
+
+.burger__shape  {
+    position: absolute;
+    width: 80%;
+    height: 5%;
+    left: 10%;
+    background-color: #fff;
+    transition: all .3s;
+    transform-origin: 48% 50%;
+}
+
+.burger__shape_1 {
+    top: 25%;
+}
+
+.burger__shape_2 {
+    top: 47.5%;
+}
+
+.burger__shape_3 {
+    top: 68.5%;
+}
+
+.burger--cross .burger__shape_1 {
+    transform: translate(0, 1vw) rotate(45deg);
+}
+
+.burger--cross .burger__shape_2 {
+    opacity: 0;
+}
+
+.burger--cross .burger__shape_3 {
+    transform: translate(0, -1vw) rotate(-45deg);
+}

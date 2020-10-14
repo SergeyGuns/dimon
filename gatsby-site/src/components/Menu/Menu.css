@@ -1,0 +1,28 @@
+.menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  animation: menuFade 0.5s both;
+  background-color: #000;
+  color: #fff;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@keyframes menuFade {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
