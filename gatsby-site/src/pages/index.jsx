@@ -65,9 +65,9 @@ export default function Home() {
               src="https://sergeyguns.github.io/dimon/pairs/01_1.jpg"
             />
             <div data-aos="fade-up" className="img__text">
-              <h2 style={{ color: "black" }}>HELLO.</h2>
+              <h2 style={{ color: "white" }}>HELLO.</h2>
 
-              <span> Fish text.</span>
+              <span style={{ color: "white" }}> Fish text.</span>
             </div>
           </Col>
         </Row>
