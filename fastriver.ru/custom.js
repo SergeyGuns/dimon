@@ -1,7 +1,7 @@
 var header = document.querySelector("#rec254409915");
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.1");
+console.warn("v0.0.2");
 window.addEventListener("scroll", function () {
   var scrolled = window.scrollY;
   if (scrolled > 100 && scrolled > scrollPrev) {
