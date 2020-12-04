@@ -4,8 +4,6 @@ var isOut = false;
 console.warn("v0.0.1");
 window.addEventListener("scroll", function () {
   var scrolled = window.scrollY;
-  console.log({ scrolled });
-
   if (scrolled > 100 && scrolled > scrollPrev) {
     console.log({ scrolled, scrollPrev });
     if (isOut !== true) {
