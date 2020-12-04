@@ -5,7 +5,6 @@ console.warn("v0.0.2");
 window.addEventListener("scroll", function () {
   var scrolled = window.scrollY;
   if (scrolled > 100 && scrolled > scrollPrev) {
-    console.log({ scrolled, scrollPrev });
     if (isOut !== true) {
       header.classList.add("out");
       isOut = true;
