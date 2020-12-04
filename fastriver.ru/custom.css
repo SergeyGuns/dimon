@@ -1,0 +1,11 @@
+
+div[data-artboard-recid="254409915"] {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  transition: all .3s ease;
+  z-index:99;
+}
+div[data-artboard-recid="254409915"].out {
+  transform: translateY(-100%);
+}
