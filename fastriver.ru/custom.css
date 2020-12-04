@@ -5,6 +5,7 @@
   width: 100%;
   transition: all .3s ease;
   z-index:99;
+  will-change: transform;
 }
 #rec254409915.out {
   transform: translateY(-100%);
