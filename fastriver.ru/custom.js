@@ -1,6 +1,7 @@
-var header = document.querySelector('div[data-artboard-recid="254409915"]');
+var header = document.querySelector("#rec254409915");
 var scrollPrev = 0;
 var isOut = false;
+console.warn("v0.0.1");
 window.addEventListener("scroll", function () {
   var scrolled = window.scrollY;
   console.log({ scrolled });
