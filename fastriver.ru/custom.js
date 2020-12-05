@@ -23,7 +23,7 @@ function showWhiteMenu() {
   whiteMenu.display = block;
 }
 
-function showWhiteMenu() {
+function showBlueMenu() {
   blueMenu.display = block;
   whiteMenu.display = white;
 }
