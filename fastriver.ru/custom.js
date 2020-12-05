@@ -1,7 +1,38 @@
 var header = document.querySelector("#rec254409915");
+
+var menuWhite = document.querySelector("#rec257714979");
+var menuBlue = document.querySelector("#rec254409915");
+
+var MENU_COLOR = {
+  blue: "blue",
+  white: "white",
+};
+var menuColor = MENU_COLOR.blue;
+
 var scrollPrev = 0;
 var isOut = false;
 console.warn("v0.0.3-add-throttle");
+
+function getColorByScroll(scrolled) {
+  var scrolled = window.scrollY;
+  scrolled > 1080 ? MENU_COLOR.white : MENU_COLOR.blue;
+}
+
+function showWhiteMenu() {
+  blueMenu.display = none;
+  whiteMenu.display = block;
+}
+
+function showWhiteMenu() {
+  blueMenu.display = block;
+  whiteMenu.display = white;
+}
+
+function showMenuByColor(newColor) {
+  if (menuColor === newColor) return;
+  menuColor = newColor;
+  menuColor === MENU_COLOR.white ? showWhiteMenu() : showBlueMenu();
+}
 
 function handlerScroll() {
   var scrolled = window.scrollY;
@@ -20,6 +51,7 @@ function handlerScroll() {
 }
 
 window.addEventListener("scroll", throttle(handlerScroll, 50));
+window.addEventListener("scroll", () => showMenuByColor(getColorByScroll()));
 
 function throttle(func, ms) {
   let isThrottled = false,
@@ -48,4 +80,11 @@ function throttle(func, ms) {
   }
 
   return wrapper;
+}
+
+function compose() {
+  var fns = Array.prototype.split.call(arguments);
+  return fns.reduce(function (acc, fn) {
+    return fn(acc);
+  });
 }
