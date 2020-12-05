@@ -11,7 +11,7 @@ var menuColor = MENU_COLOR.blue;
 
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.8");
+console.warn("v0.0.9");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
@@ -39,12 +39,14 @@ function handlerScroll() {
   var scrolled = window.scrollY;
   if (scrolled > 100 && scrolled > scrollPrev) {
     if (isOut !== true) {
-      header.classList.add("out");
+      menuWhite.classList.add("out");
+      menuBlue.classList.add("out");
       isOut = true;
     }
   } else {
     if (isOut !== false) {
-      header.classList.remove("out");
+      menuWhite.classList.remove("out");
+      menuBlue.classList.remove("out");
       isOut = false;
     }
   }
@@ -81,11 +83,4 @@ function throttle(func, ms) {
   }
 
   return wrapper;
-}
-
-function compose() {
-  var fns = Array.prototype.split.call(arguments);
-  return fns.reduce(function (acc, fn) {
-    return fn(acc);
-  });
 }
