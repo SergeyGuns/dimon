@@ -1,4 +1,5 @@
 
+#rec257714979,
 #rec254409915 {
   position: fixed;
   top: 0; left: 0;
@@ -7,6 +8,7 @@
   z-index:99;
   will-change: transform;
 }
+#rec257714979.out,
 #rec254409915.out {
   transform: translateY(-100%);
 }

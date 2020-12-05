@@ -11,7 +11,7 @@ var menuColor = MENU_COLOR.blue;
 
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.9");
+console.warn("v0.0.10");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
