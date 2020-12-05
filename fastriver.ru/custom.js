@@ -1,7 +1,7 @@
 var header = document.querySelector("#rec254409915");
 
 var menuWhite = document.querySelector("#rec257714979");
-var menuWhite = document.querySelector("#rec254409915");
+var menuBlue = document.querySelector("#rec254409915");
 
 var MENU_COLOR = {
   blue: "blue",
@@ -19,13 +19,13 @@ function getColorByScroll(scrolled) {
 }
 
 function showWhiteMenu() {
-  menuWhite.display = none;
-  menuWhite.display = block;
+  menuBlue.display = "none";
+  menuWhite.display = "block";
 }
 
 function showBlueMenu() {
-  menuWhite.display = block;
-  menuWhite.display = white;
+  menuBlue.display = "block";
+  menuWhite.display = "none";
 }
 
 function showMenuByColor(newColor) {
