@@ -8,6 +8,9 @@
   z-index:99;
   will-change: transform;
 }
+#rec257714979 {
+  z-index: 110;
+}
 #rec257714979.out,
 #rec254409915.out {
   transform: translateY(-100%);
