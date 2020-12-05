@@ -11,11 +11,11 @@ var menuColor = MENU_COLOR.blue;
 
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.5");
+console.warn("v0.0.6");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
-  scrolled > 1080 ? MENU_COLOR.white : MENU_COLOR.blue;
+  return scrolled > 1080 ? MENU_COLOR.white : MENU_COLOR.blue;
 }
 
 function showWhiteMenu() {
