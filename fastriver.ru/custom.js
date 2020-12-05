@@ -1,5 +1,5 @@
 var header = document.querySelector("#rec254409915");
-
+var screenHeight = document.querySelector("#rec254109717").clientHeight;
 var menuWhite = document.querySelector("#rec257714979");
 var menuBlue = document.querySelector("#rec254409915");
 
@@ -15,7 +15,7 @@ console.warn("v0.0.10");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
-  return scrolled > 1080 ? MENU_COLOR.white : MENU_COLOR.blue;
+  return scrolled > screenHeight ? MENU_COLOR.white : MENU_COLOR.blue;
 }
 
 function showWhiteMenu() {
