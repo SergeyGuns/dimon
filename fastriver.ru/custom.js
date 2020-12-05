@@ -11,7 +11,7 @@ var menuColor = MENU_COLOR.blue;
 
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.3-add-throttle");
+console.warn("v0.0.4");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
