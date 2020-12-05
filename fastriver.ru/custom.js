@@ -11,7 +11,7 @@ var menuColor = MENU_COLOR.blue;
 
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.10");
+console.warn("v0.0.11");
 
 function getColorByScroll(scrolled) {
   var scrolled = window.scrollY;
@@ -29,7 +29,6 @@ function showBlueMenu() {
 }
 
 function showMenuByColor(newColor) {
-  console.log({ newColor, menuColor });
   if (menuColor === newColor) return;
   menuColor = newColor;
   menuColor === MENU_COLOR.white ? showWhiteMenu() : showBlueMenu();
