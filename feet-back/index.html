@@ -1,0 +1,240 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        background-color: #000;
+      }
+      .MuiInput-underline:before {
+        border-color: #fff700 !important;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+    />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.6/index.min.js"
+      integrity="sha512-PMVw2HzV4gXtPe+BpvOQRQe9HtKcU4jA4N9ilRq+paTcz/ERKCt4d9hqXlslfsKOydknA4Y4JsiQexm/1W8zIA=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      src="https://unpkg.com/@material-ui/core/umd/material-ui.production.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const mainColor = "#fff700";
+      const UI = window.MaterialUI;
+      const theme = UI.createMuiTheme({
+        root: {
+          flexGrow: 1,
+        },
+        palette: {
+          type: "dark",
+          primary: UI.colors.yellow,
+          secondary: UI.colors.red,
+          common: {
+            white: mainColor,
+          },
+          text: {
+            primery: mainColor,
+            secondary: mainColor,
+          },
+          textArea: {
+            height: "600px",
+          },
+        },
+        overrides: {
+          MuiOutlinedInput: {
+            root: {
+              position: "relative",
+              "& $notchedOutline": {
+                borderColor: mainColor,
+              },
+              "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+                borderColor: mainColor,
+                // Reset on touch devices, it doesn't add specificity
+                "@media (hover: none)": {
+                  borderColor: mainColor,
+                },
+              },
+              "&$focused $notchedOutline": {
+                borderColor: mainColor,
+                borderWidth: 1,
+              },
+            },
+          },
+          MuiInputUnderline: {
+            root: {
+              "&:before": {
+                borderColor: mainColor,
+              },
+            },
+          },
+          MuiFormLabel: {
+            root: {
+              "&$focused": {
+                color: mainColor,
+              },
+            },
+          },
+        },
+      });
+      const styles = (theme) => ({
+        root: {
+          flexGrow: 1,
+        },
+        main: {
+          display: "flex",
+          flexFlow: "inherit",
+        },
+        paper: {
+          padding: theme.spacing.unit * 2,
+          textAlign: "center",
+          backgroundColor: 'black'
+        },
+        borderedPaper: {
+          borderColor: 'red',
+          borderRadius: '20px',
+          border: 'solid 2px',
+          marginBottom: theme.spacing.unit * 2,
+          color: 'red'
+        },
+        textField: {
+          marginTop: theme.spacing.unit / 2,
+          marginLeft: theme.spacing.unit,
+          marginRight: theme.spacing.unit,
+          borderColor: mainColor,
+          width: "100%",
+        },
+        dense: {
+          marginTop: 19,
+        },
+      });
+
+      function FullWidthGrid(props) {
+        const { classes } = props;
+        const [state, setState] = React.useState({
+          fio: "",
+          email: "",
+          phone: "",
+          textField: "",
+        });
+
+        const handleChange = (name) => (event) => {
+          setState({ [name]: event.target.value });
+        };
+        return (
+          <div className={classes.root}>
+            <UI.Grid container spacing={24}>
+              <UI.Grid direction="row" md={9} className={classes.main}>
+                <UI.Grid item xs={12} md={4}>
+                  <UI.Paper className={classes.paper}>
+                    <UI.TextField
+                      id="standard-dense"
+                      label="Имя и Фамилия"
+                      value={state.fio}
+                      className={classNames(classes.textField, classes.dense)}
+                      onChange={handleChange("fio")}
+                      margin="dense"
+                    />
+                  </UI.Paper>
+                </UI.Grid>
+                <UI.Grid item xs={12} md={4}>
+                  <UI.Paper className={classes.paper}>
+                    <UI.TextField
+                      id="standard-dense"
+                      label="E-mail"
+                      value={state.email}
+                      className={classNames(classes.textField, classes.dense)}
+                      onChange={handleChange("email")}
+                      margin="dense"
+                    />
+                  </UI.Paper>
+                </UI.Grid>
+                <UI.Grid item xs={12} md={4}>
+                  <UI.Paper className={classes.paper}>
+                    <UI.TextField
+                      id="standard-dense"
+                      label="Телефон"
+                      value={state.phone}
+                      className={classNames(classes.textField, classes.dense)}
+                      onChange={handleChange("phone")}
+                      margin="dense"
+                    />
+                  </UI.Paper>
+                </UI.Grid>
+
+                <UI.Grid item xs={12} md={12}>
+                  <UI.Paper className={classes.paper}>
+                    <UI.Typography
+                      align="left"
+                      variant="subtitle1"
+                      component="h3"
+                    >
+                      Почему Вы хотите стать учителем?
+                    </UI.Typography>
+                    <UI.TextField
+                      id="outlined-bare"
+                      className={classNames(
+                        classes.textField,
+                        classes.textArea
+                      )}
+                      value={state.textField}
+                      margin="normal"
+                      onChange={handleChange("textField")}
+                      variant="outlined"
+                    />
+                  </UI.Paper>
+                </UI.Grid>
+              </UI.Grid>
+              <UI.Grid item xs={12} md={3}>
+                <UI.Paper className={classNames(classes.paper, classes.borderedPaper)}>
+                  <UI.Typography
+                    align="left"
+                    variant="subtitle1"
+                    component="h3"
+                  >
+                    Место проведения
+                  </UI.Typography>
+                  <UI.Typography align="left" variant="h5" component="h3">
+                    Online ZOOM
+                  </UI.Typography>
+                  <UI.Typography align="left" variant="h5" component="h2">
+                    КУРС
+                  </UI.Typography>
+                  <UI.Typography align="left" variant="h5" component="h2">
+                    БЕСПЛАТНЫЙ
+                  </UI.Typography>
+                </UI.Paper>
+                <UI.Paper className={classNames(classes.paper, classes.borderedPaper)}>
+                  <UI.Typography align="center" variant="h5" component="h2">
+                    Подать заявку
+                  </UI.Typography>
+                </UI.Paper>
+              </UI.Grid>
+            </UI.Grid>
+          </div>
+        );
+      }
+
+      const FeedBack = UI.withStyles(styles)(FullWidthGrid);
+      ReactDOM.render(
+        <UI.MuiThemeProvider theme={theme}>
+          <FeedBack classes="feed" />
+        </UI.MuiThemeProvider>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
