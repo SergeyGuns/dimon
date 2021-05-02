@@ -1,12 +1,27 @@
-# Magnetic 3D Grid Interaction with Content Preview
-
-A grid layout with a magnetic 3D hover effect and a content preview animation.
-
-![Magnetic 3D Grid Interaction with Content Preview](https://tympanus.net/codrops/wp-content/uploads/2021/04/3DGridContentPreview.jpg)
-
-[Article on Codrops](https://tympanus.net/codrops/?p=54253)
-
-[Demo](http://tympanus.net/Development/3DGridContentPreview/)
+- favicon
+- images * n (n = atricles count)
+  - thumbs ~300px * ~400px jpg
+  - full ~600px * ~900px jpg
+  - images grid position 
+- articles * n
+  - title
+  - ?date
+  - text
+- main-colors
+  ```
+  --color-text: #000;
+  --color-text-alt: #848484;
+  --color-title: #d3d3d3;
+  --color-bg: #dcdcdc;
+  --color-link: #e3154d;
+  --color-link-hover: #000;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  --cursor-stroke: #e3154d;
+  --cursor-fill: none;
+  --cursor-stroke-width: 1px;
+  --cursor-text: #000;
+  ```
 
 
 ## Installation
@@ -28,16 +43,3 @@ Create the build:
 ```
 npm run build
 ```
-
-## Credits
-
-- Images from [Unsplash.com](https://unsplash.com)
-
-## Misc
-
-Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
-
-## License
-[MIT](LICENSE)
-
-Made with :blue_heart: by [Codrops](http://www.codrops.com)
