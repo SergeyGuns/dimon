@@ -1,9 +1,9 @@
-// import { Cursor } from "./cursor";
+import { Cursor } from "./cursor";
 import { Grid } from "./grid";
 import { preloadImages } from "./utils";
 
 // custom cursor
-// const cursor = new Cursor(document.querySelector(".cursor"));
+const cursor = new Cursor(document.querySelector(".cursor"));
 
 // Preload  images
 preloadImages(".grid__item-img").then(() => {

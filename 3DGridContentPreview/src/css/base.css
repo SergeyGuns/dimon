@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Raffinata;
+  src: url(../fonts/Raffinata.woff);
+}
+
 *,
 *::after,
 *::before {
@@ -18,19 +23,19 @@ main {
 
 body {
   margin: 0;
-  --color-text: #000;
+  --color-text: #3F3B35;
   --color-text-alt: #848484;
   --color-title: #d3d3d3;
-  --color-bg: #dcdcdc;
+  --color-bg: #F5F5F5;
   --color-link: #e3154d;
-  --color-link-hover: #000;
+  --color-link-hover: #3F3B35;
   color: var(--color-text);
   background-color: var(--color-bg);
   --cursor-stroke: #e3154d;
   --cursor-fill: none;
   --cursor-stroke-width: 1px;
   --cursor-text: #000;
-  font-family: tenon, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+  font-family: Raleway, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
     Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -295,14 +300,19 @@ a:focus {
   position: relative;
   overflow: hidden;
   line-height: 1;
+
 }
 
 .content__title-line--1 {
-  margin-left: -5vw;
+  margin-left: 0vw;
 }
 
 .content__title-line--2 {
-  margin-right: -5vw;
+  margin-left: 5vw;
+}
+
+.content__title-line--3 {
+  margin-left: 10vw;
 }
 
 .preview {
@@ -359,10 +369,13 @@ a:focus {
 
 .preview__item-title {
   grid-area: preview-title;
-  font-family: dystopian, sans-serif;
+  font-family: Raffinata, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
   font-size: 12vw;
-  font-size: clamp(1.5rem, 6vw, 10vh);
+  font-size: clamp(1.5rem, 10vw, 18vh);
   margin: 0;
+  line-height: 1.4;
   grid-column-start: 1;
   align-self: center;
   padding-left: 1rem;
@@ -412,25 +425,29 @@ a:focus {
 }
 
 .preview__item-button {
-  color: #fff;
+  color: #000;
   border: 0;
   border-radius: 2rem;
   text-transform: uppercase;
   font: inherit;
+  margin-top: 3rem;
   font-size: 0.875rem;
   font-weight: 500;
-  background: #000;
+  background: var(--color-bg);
+  border: #000 solid 1px;
   padding: 1rem 2rem;
   display: inline-block;
   cursor: pointer;
   margin-bottom: 1rem;
+  transition: all .3s;
 }
 
 .preview__item-button:hover,
 .preview__item-button:active,
 .preview__item-button:focus {
   outline: none;
-  background: var(--color-link);
+  color: #fff;
+  background-color: #000;
 }
 
 .cursor {
