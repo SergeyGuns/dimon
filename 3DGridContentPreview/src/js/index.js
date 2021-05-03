@@ -8,7 +8,7 @@ const cursor = new Cursor(document.querySelector(".cursor"));
 // Preload  images
 preloadImages(".grid__item-img").then(() => {
   // Remove loader (loading class)
-  document.body.classList.remove("loading");
+  document.querySelector(".loading").classList.remove("loading");
 
   // Initialize grid
   const grid = new Grid(document.querySelector(".grid"));
