@@ -450,7 +450,7 @@ const cursor = new _cursor.Cursor(document.querySelector(".cursor"));
 // Preload  images
 _utils.preloadImages(".grid__item-img").then(() => {
   // Remove loader (loading class)
-  document.body.classList.remove("loading");
+  document.querySelector(".loading").classList.remove("loading");
   // Initialize grid
   const grid = new _grid.Grid(document.querySelector(".grid"));
   // change cursor text status when hovering a grid item
