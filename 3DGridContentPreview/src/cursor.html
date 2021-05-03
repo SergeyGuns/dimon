@@ -1,37 +1,34 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  .container {
-    height: 100vh;
-    width: 100vw;
-    box-sizing: border-box;
-    border: solid 1px;
-  }
-</style>
-<body>
-  <div>
-    <div class="cursor">
-      <svg class="cursor__svg" width="80" height="80" viewBox="0 0 80 80">
-        <circle
-          vector-effect="non-scaling-stroke"
-          class="cursor__svg-circle"
-          cx="40"
-          cy="40"
-          r="20"
-        />
-      </svg>
-      <span class="cursor__text"></span>
-    </div>
+<cursor>
+  <style>
+    #cursor {
+      position: absolute;
+    }
+    .cursor__svg-circle {
+      fill: none;
+      stroke: #e3154d;
+      stroke-width: 1px;
+    }
+  </style>
+  <div id="cursor">
+    <svg class="cursor__svg" width="80" height="80" viewBox="0 0 80 80">
+      <circle
+        vector-effect="non-scaling-stroke"
+        class="cursor__svg-circle"
+        cx="40"
+        cy="40"
+        r="20"
+      />
+    </svg>
   </div>
+  <script>
+    const cursor = document.getElementById("cursor");
+    window.onmousemove = handleMouseMove;
+    function handleMouseMove(event) {
+      event = event || window.event;
+      console.log(event);
+      cursor.style.top = event.clientY - 80 / 2 + "px";
+      cursor.style.left = event.clientX - 80 / 2 + "px";
+    }
+  </script>
+</cursor>
 
-  <div class="container">1</div>
-  <div class="container">2</div>
-  <div class="container">3</div>
-  <div class="container">3</div>
-</body>
-</html>
