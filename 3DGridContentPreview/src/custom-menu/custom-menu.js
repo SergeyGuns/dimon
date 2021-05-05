@@ -1,11 +1,7 @@
 var menu = document.querySelector("#rec311904663");
 var scrollPrev = 0;
 var isOut = false;
-console.warn("v0.0.11");
-
-function showMenu(newColor) {
-  menu.hidden = false;
-}
+console.warn("v0.0.12");
 
 function handlerScroll() {
   var scrolled = window.scrollY;
@@ -24,7 +20,6 @@ function handlerScroll() {
 }
 
 window.addEventListener("scroll", throttle(handlerScroll, 50));
-window.addEventListener("scroll", () => showMenuByColor());
 
 function throttle(func, ms) {
   let isThrottled = false,
