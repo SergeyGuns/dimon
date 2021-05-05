@@ -1,0 +1,16 @@
+
+
+#rec311904663 {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  transition: all .3s ease;
+  z-index:99;
+  will-change: transform;
+}
+#rec311904663 {
+  z-index: 90;
+}
+#rec311904663.out {
+  transform: translateY(-100%);
+}
