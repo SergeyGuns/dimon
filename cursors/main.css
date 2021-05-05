@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+}
+.svg-list {
+  display: flex;
+}
+.svg-list__item {
+  font-family: monospace;
+  border: solid 1px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.svg-list__cursor {
+  height: 30px;
+}
+
+.svg-list__cursor-name {
+  background-color: #f0f0f0;
+  padding: 3px;;
+}

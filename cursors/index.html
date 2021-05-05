@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./main.css">
+  <style id="cursor_style">
+  </style>
+</head>
+<body>
+  <div style="position: absolute; pointer-events: none;" id="custom_cursor">
+  </div>
+  <div class="svg-list">
+    <div class="svg-list__item">
+      <img class="svg-list__cursor" src="./images/1.svg" alt="">
+      <div class="svg-list__cursor-name">1.svg</div>
+    </div>
+    <div class="svg-list__item" data-name=''>
+      <img class="svg-list__cursor" src="./images/2.svg" alt="">
+      <div class="svg-list__cursor-name">1.svg</div>
+    </div>
+  </div>
+  <select onchange="onSelectChange(event)" name="cursor_list" id="select">
+  </select>
+  <button style='width: 350; height: 150;'>Hover</button>
+  <script>
+    const svgList = document.querySelector('.svg-list')
+    const select = document.querySelector('#select')
+    const images = getAllCursors(svgList)
+    const bodyStyleNode = document.getElementById('cursor_style')
+    const customCursor = document.getElementById('custom_cursor')
+    select.innerHTML = images.map(templateOption).join('\n')
+    function templateOption (name) { return `<option value="${name}">
+      ${name}
+      </option>`
+    }
+    function getAllCursors(svgLists) {
+      return Array.prototype.slice.call(svgLists.querySelectorAll('img')).map(({src}) => src)
+    }
+    function onSelectChange ({target : {value}}) {
+      console.dir(value)
+      addCustomCursor(value, bodyStyleNode, customCursor)
+    }
+
+    function addCustomCursor (url, styleNode, cursorNone) {
+      styleNode.innerText = `* {cursor: none !important;}`
+      customCursor.innerHTML = `<img class="svg-list__cursor" src="${url}" alt="">`
+    }
+
+    // cursor move
+    (function() {
+  var follower, init, mouseX, mouseY, positionElement, timer;
+
+  follower = document.getElementById('custom_cursor');
+
+  mouseX = (event) => {
+    return event.clientX;
+  };
+
+  mouseY = (event) => {
+    return event.clientY;
+  };
+
+  positionElement = (event) => {
+    var mouse;
+    mouse = {
+      x: mouseX(event),
+      y: mouseY(event)
+    };
+    follower.style.top = mouse.y + 'px';
+    return follower.style.left = mouse.x + 'px';
+  };
+
+  timer = false;
+
+  window.onmousemove = init = (event) => {
+    var _event;
+    _event = event;
+    return timer = setTimeout(() => {
+      return positionElement(_event);
+    }, 1);
+  };
+
+}).call(this);
+
+  </script>
+
+</body>
+</html>
