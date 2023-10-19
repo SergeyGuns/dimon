@@ -22,8 +22,8 @@
         const styleEl = document.querySelector('#fonts_for_load')
         styleEl.innerHTML = FONT_STYLE.map(([name, link])=>
             `@font-face { 
-                font-family: "${name}"; 
-                src: url(${link}); 
+                font-family: '${name}'; 
+                src: url('${link}'); 
             };`).join('\n')
     </script>
 <body>
