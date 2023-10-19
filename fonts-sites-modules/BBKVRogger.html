@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBKVRogger</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="mail.css">
+</head>
+    <script>
+        const FONT_STYLE = [
+            ["Rogger Regular" , './assets/BBKVRogge/BBKVRogger.ttf'],
+            ["BBKV SecondSans Medium" , './assets/BBKVSecondSans/BBKV SecondSans Medium.ttf'],
+            ["BBKV SecondSans Regular" , './assets/BBKVSecondSans/BBKV SecondSans Regular.ttf'],
+        ]
+    </script>
+    <style id="fonts_for_load">
+
+    </style>
+    <script>
+        const styleEl = document.querySelector('#fonts_for_load')
+        styleEl.innerHTML = FONT_STYLE.map(([name, link])=>
+            `@font-face { 
+                font-family: ${name}; 
+                src: url(${link}); 
+            }`).join('\n')
+    </script>
+<body>
+    <div class="controls">
+        <select name="FONT_STYLE" id="FONT_STYLE">
+            <option value=""></option>
+        </select>
+    </div>
+    <script>
+        const styleSelectEl = document.querySelector('#FONT_STYLE')
+        styleSelectEl.addEventListener('select', (ev)=>{
+            console.log(ev)
+        })
+        styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
+          return `<option value="${style}"> ${style} </options>`
+        }).join('\n')
+    </script>
+</body>
+</html>
