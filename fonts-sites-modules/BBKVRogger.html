@@ -1,54 +1,216 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BBKVRogger</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="main.css">
-</head>
-    <script>
-        const FONT_STYLE = [
-            ["Rogger Regular" , 'assets/BBKVRogger/BBKV Rogger.ttf'],
-            ["BBKV SecondSans Medium" , 'assets/BBKVSecondSans/BBKV SecondSans Medium.ttf'],
-            ["BBKV SecondSans Regular" , 'assets/BBKVSecondSans/BBKV SecondSans Regular.ttf'],
-        ]
-    </script>
-    <style id="fonts_for_load">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="main.css" />
+    <svg class="sprites">
+      <symbol id="select-arrow-down" viewbox="0 0 10 6">
+        <polyline points="1 1 5 5 9 1"></polyline>
+      </symbol>
+      <symbol
+        width="22"
+        height="14"
+        viewBox="0 0 22 14"
+        fill="none"
+        id="left"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 1H17"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M1 7H21"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M1 13H17"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol
+        width="22"
+        height="14"
+        viewBox="0 0 22 14"
+        fill="none"
+        id="center"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 1H17"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M1 7H21"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M5 13H17"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol
+        width="22"
+        height="14"
+        viewBox="0 0 22 14"
+        fill="none"
+        id="right"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 1H21"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M1 7H21"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M10 13H21"
+          stroke="#271339"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+    </svg>
+  </head>
+  <script>
+    const FONT_STYLE = [
+      ["Rogger Regular", "assets/BBKVRogger/BBKV Rogger.ttf"],
+      [
+        "BBKV SecondSans Medium",
+        "assets/BBKVSecondSans/BBKV SecondSans Medium.ttf",
+      ],
+      [
+        "BBKV SecondSans Regular",
+        "assets/BBKVSecondSans/BBKV SecondSans Regular.ttf",
+      ],
+    ];
+  </script>
+  <style id="fonts_for_load"></style>
 
-    </style>
-   
-
-    <script>
-        const styleEl = document.querySelector('#fonts_for_load')
-        styleEl.innerHTML = FONT_STYLE.map(([name, link])=>
-            `@font-face { 
+  <script>
+    const styleEl = document.querySelector("#fonts_for_load");
+    styleEl.innerHTML = FONT_STYLE.map(
+      ([name, link]) =>
+        `@font-face { 
                 font-family: '${name}'; 
                 src: url('${link}'); 
-            }`).join('\n')
-    </script>
-<body>
-    <div class="controls">
-        <select name="FONT_STYLE" id="FONT_STYLE"></select>
-        <input id="font_size" type="range" min="16" max="64" step="1" name="" id="">
-        <div contenteditable="true" id="content_text">
-            Adsdsa fasdfasd fadsklhkahsd
+            }`
+    ).join("\n");
+  </script>
+  <body>
+    <div class="content">
+      <div class="controls">
+        <div class="controls">
+          <label for="slct" class="select">
+            <select name="FONT_STYLE" id="FONT_STYLE"></select>
+            <svg>
+              <use xlink:href="#select-arrow-down"></use>
+            </svg>
+          </label>
+          <span id="font_size_value"></span>
+          <input
+            id="font_size"
+            type="range"
+            min="16"
+            max="64"
+            step="1"
+            name=""
+            id=""
+          />
         </div>
-    </div>
-    <script>
-        const fontSizeInputEl = document.querySelector('#font_size')
-        const contentTextEl = document.querySelector('#content_text')
-        const styleSelectEl = document.querySelector('#FONT_STYLE')
-        fontSizeInputEl.addEventListener('change', (ev)=>{
-            const value = ev.target.value
-            contentTextEl.style.fontSize = value + 'px'
-        })
-        styleSelectEl.addEventListener('change', (ev)=>{
-            console.log(ev)
-            contentTextEl.style.cssText = `font-family: "${ev.target.value}"`
-        })
+        <div onclick="toggleNextAlignState()">
+          <svg width="30" height="15">
+            <use id="align_icon" xlink:href="#right"></use>
+          </svg>
+        </div>
+        <div onclick="toggleDarkMode()">
+          <svg
+            width="26"
+            height="11"
+            viewBox="0 0 26 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="5.5" cy="5.5" r="5.5" fill="#271339" stroke="#ffffff" />
+            <circle cx="20.5" cy="5.5" r="5" stroke="#271339" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+      <div contenteditable="true" id="content_text">
+        Adsdsa fasdfasd fadsklhkahsd
+      </div>
+
+      <script>
+        let darkMode = false;
+
+        function toggleDarkMode() {
+          console.log("toggleDarkMode", darkMode);
+          const [dark, ligth] = ["#271339", "#fff"];
+          darkMode = !darkMode;
+          document.documentElement.style.setProperty(
+            "--main-color",
+            darkMode ? "var(--ligth)" : "var(--dark)"
+          );
+          document.documentElement.style.setProperty(
+            "--main-bg-color",
+            !darkMode ? "var(--ligth)" : "var(--dark)"
+          );
+        }
+        const contentTextEl = document.querySelector("#content_text");
+        const ALIGN_STATES = ["left", "center", "right"];
+        const alignIconEl = document.querySelector("#align_icon");
+        const fontSizeValueEl = document.querySelector('#font_size_value')
+        let alignState = ALIGN_STATES[0];
+
+        alignIconEl.setAttribute("xlink:href", "#" + alignState);
+        contentTextEl.style.textAlign = alignState;
+        function toggleNextAlignState() {
+          const cuttIndex = ALIGN_STATES.indexOf(alignState);
+          if (cuttIndex === ALIGN_STATES.length - 1) {
+            alignState = ALIGN_STATES[0];
+          } else {
+            alignState = ALIGN_STATES[cuttIndex + 1];
+          }
+          alignIconEl.setAttribute("xlink:href", "#" + alignState);
+          contentTextEl.style.textAlign = alignState;
+        }
+        const fontSizeInputEl = document.querySelector("#font_size");
+        const styleSelectEl = document.querySelector("#FONT_STYLE");
+        fontSizeInputEl.value = 16
+        fontSizeValueEl.innerHTML = fontSizeInputEl.value + 'px'
+        fontSizeInputEl.addEventListener("input", (ev) => {
+          const value = ev.target.value;
+          contentTextEl.style.fontSize = value + "px";
+          fontSizeValueEl.innerHTML = value + 'px'
+        });
+        styleSelectEl.addEventListener("change", (ev) => {
+          console.log(ev);
+          contentTextEl.style.cssText = `font-family: "${ev.target.value}"`;
+        });
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
-          return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`
-        }).join('\n')
-    </script>
-</body>
+          return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
+        }).join("\n");
+      </script>
+    </div>
+  </body>
 </html>
