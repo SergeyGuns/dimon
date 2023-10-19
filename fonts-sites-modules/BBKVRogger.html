@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBKVRogger</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="mail.css">
+    <link rel="stylesheet" href="main.css">
 </head>
     <script>
         const FONT_STYLE = [
-            ["Rogger Regular" , './assets/BBKVRogge/BBKVRogger.ttf'],
-            ["BBKV SecondSans Medium" , './assets/BBKVSecondSans/BBKV SecondSans Medium.ttf'],
-            ["BBKV SecondSans Regular" , './assets/BBKVSecondSans/BBKV SecondSans Regular.ttf'],
+            ["Rogger Regular" , 'assets/BBKVRogge/BBKVRogger.ttf'],
+            ["BBKV SecondSans Medium" , 'assets/BBKVSecondSans/BBKV SecondSans Medium.ttf'],
+            ["BBKV SecondSans Regular" , 'assets/BBKVSecondSans/BBKV SecondSans Regular.ttf'],
         ]
     </script>
     <style id="fonts_for_load">
@@ -36,7 +36,7 @@
             console.log(ev)
         })
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
-          return `<option value="${style}"> ${style} </options>`
+          return `<option style="font-family: ${style}" value="${style}"> ${style} </options>`
         }).join('\n')
     </script>
 </body>
