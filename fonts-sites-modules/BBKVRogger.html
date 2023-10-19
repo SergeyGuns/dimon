@@ -16,6 +16,10 @@
     <style id="fonts_for_load">
 
     </style>
+    <div contenteditable="true" id="content_text">
+        Adsdsa fasdfasd fadsklhkahsd
+    </div>
+
     <script>
         const styleEl = document.querySelector('#fonts_for_load')
         styleEl.innerHTML = FONT_STYLE.map(([name, link])=>
@@ -26,14 +30,14 @@
     </script>
 <body>
     <div class="controls">
-        <select name="FONT_STYLE" id="FONT_STYLE">
-            <option value=""></option>
-        </select>
+        <select name="FONT_STYLE" id="FONT_STYLE"></select>
     </div>
     <script>
+        const contentTextEl = document.querySelector('#content_text')
         const styleSelectEl = document.querySelector('#FONT_STYLE')
-        styleSelectEl.addEventListener('select', (ev)=>{
+        styleSelectEl.addEventListener('change', (ev)=>{
             console.log(ev)
+            contentTextEl.style.cssText = `font-family: ${ev.target.value}`
         })
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
           return `<option style="font-family: ${style}" value="${style}"> ${style} </options>`
