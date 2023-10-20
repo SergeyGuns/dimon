@@ -126,7 +126,7 @@
     <style>
       :root {
         --font-site-modules-dark: #271339;
-        --font-site-modules-ligth: #fff;
+        --font-site-modules-ligth: #fdfcfc;
         --font-site-modules-main-color: var(--font-site-modules-dark);
         --font-site-modules-main-bg-color: var(--font-site-modules-ligth);
       }
@@ -199,6 +199,18 @@
         justify-content: space-between;
         align-items: center;
         font-size: 11px;
+      }
+      .controls__left {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-size: 11px;
+      }
+      .control__right {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        min-width: 51%;
       }
 
       #font_size {
@@ -353,7 +365,6 @@
         id="right"
         xmlns="http://www.w3.org/2000/svg"
       >
-        
         <path
           d="M10 1H21"
           stroke="#271339"
@@ -391,8 +402,8 @@
       ],
       [
         "BBKV Wildfire",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf"
-      ]
+        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf",
+      ],
     ];
   </script>
   <style id="fonts_for_load"></style>
@@ -410,46 +421,62 @@
   <body>
     <div class="content">
       <div class="controls">
-        <div class="controls">
-          <label for="slct" class="select">
-            <select name="FONT_STYLE" id="FONT_STYLE"></select>
-            <svg>
-              <use xlink:href="#select-arrow-down"></use>
+        <div style="width: 49%">
+          <div class="controls__left">
+            <label for="slct" class="select">
+              <select name="FONT_STYLE" id="FONT_STYLE"></select>
+              <svg>
+                <use xlink:href="#select-arrow-down"></use>
+              </svg>
+            </label>
+            <span style="width: 2rem" id="font_size_value"></span>
+            <input
+              id="font_size"
+              type="range"
+              min="16"
+              max="160"
+              step="4"
+              name=""
+              id=""
+            />
+          </div>
+        </div>
+        <div class="control__right">
+          <div style="width: 27%" onclick="toggleNextAlignState()">
+            <svg width="30" height="15">
+              <use id="align_icon" xlink:href="#right"></use>
             </svg>
-          </label>
-          <span style="width: 2rem" id="font_size_value"></span>
-          <input
-            id="font_size"
-            type="range"
-            min="16"
-            max="160"
-            step="4"
-            name=""
-            id=""
-          />
-        </div>
-        <div style="width: 27%" onclick="toggleNextAlignState()">
-          <svg width="30" height="15">
-            <use id="align_icon" xlink:href="#right"></use>
-          </svg>
-        </div>
-        <div onclick="toggleDarkMode()">
-          <svg
-            width="26"
-            height="11"
-            viewBox="0 0 26 11"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="5.5" cy="5.5" r="5.5" fill="#271339" stroke="#ffffff" />
-            <circle cx="20.5" cy="5.5" r="5" stroke="#271339" fill="#ffffff" />
-          </svg>
+          </div>
+          <div onclick="toggleDarkMode()">
+            <svg
+              width="26"
+              height="11"
+              viewBox="0 0 26 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="5.5"
+                cy="5.5"
+                r="5.5"
+                fill="#271339"
+                stroke="#fdfcfc"
+              />
+              <circle
+                cx="20.5"
+                cy="5.5"
+                r="5"
+                stroke="#271339"
+                fill="#fdfcfc"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <div id="content_text">
         <div contenteditable="true">
-          Сочетающую в себе красоту пустынных просторов, роскошь
-          живописных гор и долин
+          Сочетающую в себе красоту пустынных просторов, роскошь живописных гор
+          и долин
         </div>
       </div>
 
@@ -457,15 +484,19 @@
         let darkMode = false;
 
         function toggleDarkMode() {
-          const [dark, ligth] = ["#271339", "#fff"];
+          const [dark, ligth] = ["#271339", "#fdfcfc"];
           darkMode = !darkMode;
           document.documentElement.style.setProperty(
             "--font-site-modules-main-color",
-            darkMode ? "var(--font-site-modules-ligth)" : "var(--font-site-modules-dark)"
+            darkMode
+              ? "var(--font-site-modules-ligth)"
+              : "var(--font-site-modules-dark)"
           );
           document.documentElement.style.setProperty(
             "--font-site-modules-main-bg-color",
-            !darkMode ? "var(--font-site-modules-ligth)" : "var(--font-site-modules-dark)"
+            !darkMode
+              ? "var(--font-site-modules-ligth)"
+              : "var(--font-site-modules-dark)"
           );
         }
         const contentTextEl = document.querySelector("#content_text");
