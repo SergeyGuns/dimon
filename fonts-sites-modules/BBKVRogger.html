@@ -195,7 +195,8 @@
         }
         const fontSizeInputEl = document.querySelector("#font_size");
         const styleSelectEl = document.querySelector("#FONT_STYLE");
-        fontSizeInputEl.value = 16
+        fontSizeInputEl.value = 36
+        contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
         fontSizeValueEl.innerHTML = fontSizeInputEl.value + 'px'
         fontSizeInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
@@ -203,7 +204,6 @@
           fontSizeValueEl.innerHTML = value + 'px'
         });
         styleSelectEl.addEventListener("change", (ev) => {
-          console.log(ev);
           contentTextEl.style.cssText = `font-family: "${ev.target.value}"; font-size: ${fontSizeInputEl.value}px`;
         });
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
