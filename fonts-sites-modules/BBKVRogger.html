@@ -95,14 +95,8 @@
   <script>
     const FONT_STYLE = [
       ["Rogger", "assets/BBKVRogger/BBKV Rogger.ttf"],
-      [
-        "Medium",
-        "assets/BBKVSecondSans/BBKV SecondSans Medium.ttf",
-      ],
-      [
-        "Regular",
-        "assets/BBKVSecondSans/BBKV SecondSans Regular.ttf",
-      ],
+      ["Medium", "assets/BBKVSecondSans/BBKV SecondSans Medium.ttf"],
+      ["Regular", "assets/BBKVSecondSans/BBKV SecondSans Regular.ttf"],
     ];
   </script>
   <style id="fonts_for_load"></style>
@@ -127,7 +121,7 @@
               <use xlink:href="#select-arrow-down"></use>
             </svg>
           </label>
-          <span style="width: 2rem;" id="font_size_value"></span>
+          <span style="width: 2rem" id="font_size_value"></span>
           <input
             id="font_size"
             type="range"
@@ -138,7 +132,7 @@
             id=""
           />
         </div>
-        <div style="width: 17%;" onclick="toggleNextAlignState()">
+        <div style="width: 17%" onclick="toggleNextAlignState()">
           <svg width="30" height="15">
             <use id="align_icon" xlink:href="#right"></use>
           </svg>
@@ -156,10 +150,12 @@
           </svg>
         </div>
       </div>
-      <div contenteditable="true" id="content_text">
-        Димон лох
-        Сочетающую в себе красоту пустынных просторов, роскошь живописных гор и долин
-      </div>
+        <div  id="content_text">
+          <div  contenteditable="true">
+            Димон лох
+            Сочетающую в себе красоту пустынных просторов, роскошь живописных гор и долин
+          </div>
+        </div>
 
       <script>
         let darkMode = false;
@@ -180,10 +176,10 @@
         const contentTextEl = document.querySelector("#content_text");
         const ALIGN_STATES = ["left", "center", "right"];
         const alignIconEl = document.querySelector("#align_icon");
-        const fontSizeValueEl = document.querySelector('#font_size_value')
+        const fontSizeValueEl = document.querySelector("#font_size_value");
         let alignState = ALIGN_STATES[0];
 
-        toggleNextAlignState()
+        toggleNextAlignState();
         function toggleNextAlignState() {
           const cuttIndex = ALIGN_STATES.indexOf(alignState);
           if (cuttIndex === ALIGN_STATES.length - 1) {
@@ -193,16 +189,17 @@
           }
           alignIconEl.setAttribute("xlink:href", "#" + alignState);
           contentTextEl.style.justifyContent = alignState;
+          contentTextEl.style.textAlign = alignState
         }
         const fontSizeInputEl = document.querySelector("#font_size");
         const styleSelectEl = document.querySelector("#FONT_STYLE");
-        fontSizeInputEl.value = 36
+        fontSizeInputEl.value = 36;
         contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
-        fontSizeValueEl.innerHTML = fontSizeInputEl.value + 'px'
+        fontSizeValueEl.innerHTML = fontSizeInputEl.value + "px";
         fontSizeInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
           contentTextEl.style.fontSize = value + "px";
-          fontSizeValueEl.innerHTML = value + 'px'
+          fontSizeValueEl.innerHTML = value + "px";
         });
         styleSelectEl.addEventListener("change", (ev) => {
           contentTextEl.style.cssText = `font-family: "${ev.target.value}"; font-size: ${fontSizeInputEl.value}px`;
