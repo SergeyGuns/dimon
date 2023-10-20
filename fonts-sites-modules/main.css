@@ -46,7 +46,6 @@ body {
   background: var(--main-bg-color);
   cursor: pointer;
   font-family: inherit;
-  transition: all 150ms ease;
 }
 .select select:required:invalid {
 }
