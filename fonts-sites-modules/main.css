@@ -60,7 +60,7 @@ body {
   outline: none;
 }
 .select select:hover + svg {
-  stroke: #07f;
+  stroke: var(--main-color);
 }
 .sprites {
   position: absolute;
