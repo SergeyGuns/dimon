@@ -125,8 +125,8 @@
           <input
             id="font_size"
             type="range"
-            min="8"
-            max="128"
+            min="16"
+            max="160"
             step="4"
             name=""
             id=""
@@ -151,7 +151,7 @@
         </div>
       </div>
         <div  id="content_text">
-          <div  contenteditable="true">
+          <div contenteditable="true">
             Димон лох
             Сочетающую в себе красоту пустынных просторов, роскошь живописных гор и долин
           </div>
@@ -202,7 +202,8 @@
           fontSizeValueEl.innerHTML = value + "px";
         });
         styleSelectEl.addEventListener("change", (ev) => {
-          contentTextEl.style.cssText = `font-family: "${ev.target.value}"; font-size: ${fontSizeInputEl.value}px`;
+          contentTextEl.style.fontFamily = `"${ev.target.value}"`;
+          contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`;
         });
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
           return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
