@@ -125,15 +125,15 @@
     </style>
     <style>
       :root {
-        --dark: #271339;
-        --ligth: #fff;
-        --main-color: var(--dark);
-        --main-bg-color: var(--ligth);
+        --font-site-modules-dark: #271339;
+        --font-site-modules-ligth: #fff;
+        --font-site-modules-main-color: var(--font-site-modules-dark);
+        --font-site-modules-main-bg-color: var(--font-site-modules-ligth);
       }
 
-      body {
-        background-color: var(--main-bg-color);
-        color: var(--main-color);
+      .content {
+        background-color: var(--font-site-modules-main-bg-color);
+        color: var(--font-site-modules-main-color);
         font-family: "Roboto", sans-serif;
       }
       #content_text {
@@ -157,7 +157,7 @@
         width: 10px;
         height: 6px;
         stroke-width: 2px;
-        stroke: var(--main-color);
+        stroke: var(--font-site-modules-main-color);
         fill: none;
         stroke-linecap: round;
         stroke-linejoin: round;
@@ -168,7 +168,7 @@
         padding: 7px 40px 7px 12px;
         width: 100%;
         border-radius: 5px;
-        background: var(--main-bg-color);
+        background: var(--font-site-modules-main-bg-color);
         cursor: pointer;
         font-family: inherit;
       }
@@ -184,7 +184,7 @@
         outline: none;
       }
       .select select:hover + svg {
-        stroke: var(--main-color);
+        stroke: var(--font-site-modules-main-color);
       }
       .sprites {
         position: absolute;
@@ -219,7 +219,7 @@
         outline: none;
       }
       #font_size::-webkit-slider-runnable-track {
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         content: "";
         height: 2px;
         pointer-events: none;
@@ -229,7 +229,7 @@
         width: 8px;
         -webkit-appearance: none;
         appearance: none;
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         border-radius: 4px;
         margin-top: -3.5px;
         border: 0px solid #777;
@@ -241,14 +241,14 @@
       #font_size::-moz-range-thumb {
         height: 16px;
         width: 16px;
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         border-radius: 8px;
         border: 0px solid #777;
         position: relative;
       }
       #font_size::-moz-range-progress {
         height: 2px;
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         border: 0;
         margin-top: 0;
       }
@@ -266,12 +266,12 @@
       #font_size::-ms-thumb {
         height: 16px;
         width: 16px;
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         border-radius: 8px;
         border: 0px solid #777;
       }
       #font_size::-ms-fill-lower {
-        background: var(--main-color);
+        background: var(--font-site-modules-main-color);
         border-radius: 0;
       }
       #font_size::-ms-fill-upper {
@@ -383,6 +383,10 @@
         "Regular",
         "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Regular.ttf",
       ],
+      [
+        "BBKV Wildfire",
+        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf"
+      ]
     ];
   </script>
   <style id="fonts_for_load"></style>
@@ -450,12 +454,12 @@
           const [dark, ligth] = ["#271339", "#fff"];
           darkMode = !darkMode;
           document.documentElement.style.setProperty(
-            "--main-color",
-            darkMode ? "var(--ligth)" : "var(--dark)"
+            "--font-site-modules-main-color",
+            darkMode ? "var(--font-site-modules-ligth)" : "var(--font-site-modules-dark)"
           );
           document.documentElement.style.setProperty(
-            "--main-bg-color",
-            !darkMode ? "var(--ligth)" : "var(--dark)"
+            "--font-site-modules-main-bg-color",
+            !darkMode ? "var(--font-site-modules-ligth)" : "var(--font-site-modules-dark)"
           );
         }
         const contentTextEl = document.querySelector("#content_text");
