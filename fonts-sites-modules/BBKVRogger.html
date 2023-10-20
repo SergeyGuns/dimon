@@ -94,13 +94,13 @@
   </head>
   <script>
     const FONT_STYLE = [
-      ["Rogger Regular", "assets/BBKVRogger/BBKV Rogger.ttf"],
+      ["Rogger", "assets/BBKVRogger/BBKV Rogger.ttf"],
       [
-        "BBKV SecondSans Medium",
+        "Medium",
         "assets/BBKVSecondSans/BBKV SecondSans Medium.ttf",
       ],
       [
-        "BBKV SecondSans Regular",
+        "Regular",
         "assets/BBKVSecondSans/BBKV SecondSans Regular.ttf",
       ],
     ];
@@ -127,7 +127,7 @@
               <use xlink:href="#select-arrow-down"></use>
             </svg>
           </label>
-          <span id="font_size_value"></span>
+          <span style="width: 2rem;" id="font_size_value"></span>
           <input
             id="font_size"
             type="range"
@@ -138,7 +138,7 @@
             id=""
           />
         </div>
-        <div onclick="toggleNextAlignState()">
+        <div style="width: 17%;" onclick="toggleNextAlignState()">
           <svg width="30" height="15">
             <use id="align_icon" xlink:href="#right"></use>
           </svg>
@@ -182,8 +182,7 @@
         const fontSizeValueEl = document.querySelector('#font_size_value')
         let alignState = ALIGN_STATES[0];
 
-        alignIconEl.setAttribute("xlink:href", "#" + alignState);
-        contentTextEl.style.textAlign = alignState;
+        toggleNextAlignState()
         function toggleNextAlignState() {
           const cuttIndex = ALIGN_STATES.indexOf(alignState);
           if (cuttIndex === ALIGN_STATES.length - 1) {
@@ -192,7 +191,7 @@
             alignState = ALIGN_STATES[cuttIndex + 1];
           }
           alignIconEl.setAttribute("xlink:href", "#" + alignState);
-          contentTextEl.style.textAlign = alignState;
+          contentTextEl.style.justifyContent = alignState;
         }
         const fontSizeInputEl = document.querySelector("#font_size");
         const styleSelectEl = document.querySelector("#FONT_STYLE");
@@ -205,7 +204,7 @@
         });
         styleSelectEl.addEventListener("change", (ev) => {
           console.log(ev);
-          contentTextEl.style.cssText = `font-family: "${ev.target.value}"`;
+          contentTextEl.style.cssText = `font-family: "${ev.target.value}"; font-size: ${fontSizeInputEl.value}px`;
         });
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
           return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
