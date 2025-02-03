@@ -559,9 +559,10 @@
         });
         fontWidthInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
-          contentTextEl.style.fontWeight = value;
+          contentTextEl.style.fontVariationSettings = `"wght" ${value}, "wdth" 65;`
           fontWidthValueEl.innerHTML = value;
         });
+        
         styleSelectEl.addEventListener("change", (ev) => {
           contentTextEl.style.fontFamily = `"${ev.target.value}"`;
           contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`;
