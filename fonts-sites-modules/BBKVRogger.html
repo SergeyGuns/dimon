@@ -452,7 +452,15 @@
               max="160"
               step="4"
               name=""
-              id=""
+            />
+            <span style="width: 2rem; margin-left: 20px" id="font_width_value"></span>
+            <input
+              id="font_width"
+              type="range"
+              min="1"
+              max="900"
+              step="10"
+              name=""
             />
           </div>
         </div>
@@ -518,6 +526,7 @@
         const ALIGN_STATES = ["left", "center", "right"];
         const alignIconEl = document.querySelector("#align_icon");
         const fontSizeValueEl = document.querySelector("#font_size_value");
+        const fontWidthValueEl = document.querySelector("#font_width_value");
         let alignState = ALIGN_STATES[0];
 
         toggleNextAlignState();
@@ -533,14 +542,22 @@
           contentTextEl.style.textAlign = alignState;
         }
         const fontSizeInputEl = document.querySelector("#font_size");
+        const fontWidthInputEl = document.querySelector("#font_width");
         const styleSelectEl = document.querySelector("#FONT_STYLE");
         fontSizeInputEl.value = 60;
+        fontWidthInputEl.value = 500;
         contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
         fontSizeValueEl.innerHTML = fontSizeInputEl.value + "px";
+        fontWidthValueEl.innerHTML = fontWidthInputEl.value;
         fontSizeInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
           contentTextEl.style.fontSize = value + "px";
           fontSizeValueEl.innerHTML = value + "px";
+        });
+        fontWidthInputEl.addEventListener("input", (ev) => {
+          const value = ev.target.value;
+          contentTextEl.style.fontWidth = value;
+          fontSizeValueEl.innerHTML = value;
         });
         styleSelectEl.addEventListener("change", (ev) => {
           contentTextEl.style.fontFamily = `"${ev.target.value}"`;
