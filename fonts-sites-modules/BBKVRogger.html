@@ -469,6 +469,16 @@
               step="10"
               name=""
             />
+            <span style="width: 2rem; margin-left: 20px" id="font_slnt_value"></span>
+            <input
+              class="slider"
+              id="font_slnt"
+              type="range"
+              min="1"
+              max="10"
+              step="1"
+              name=""
+            />
           </div>
         </div>
         <div class="control__right">
@@ -534,6 +544,7 @@
         const alignIconEl = document.querySelector("#align_icon");
         const fontSizeValueEl = document.querySelector("#font_size_value");
         const fontWidthValueEl = document.querySelector("#font_width_value");
+        const fontSLNTValueEl = document.querySelector("#font_slnt_value");
         let alignState = ALIGN_STATES[0];
 
         toggleNextAlignState();
@@ -550,12 +561,14 @@
         }
         const fontSizeInputEl = document.querySelector("#font_size");
         const fontWidthInputEl = document.querySelector("#font_width");
+        const fontSLNTInputEl = document.querySelector("#font_slnt");
         const styleSelectEl = document.querySelector("#FONT_STYLE");
         fontSizeInputEl.value = 60;
         fontWidthInputEl.value = 500;
         contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
         fontSizeValueEl.innerHTML = fontSizeInputEl.value + "px";
         fontWidthValueEl.innerHTML = fontWidthInputEl.value;
+        fontSLNTValueEl.innerHTML = fontSLNTInputEl.value;
         fontSizeInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
           contentTextEl.style.fontSize = value + "px";
@@ -564,8 +577,13 @@
         fontWidthInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
           contentTextEl.style.fontWeight = value;
-          // contentTextEl.style.fontVariationSettings = `&quot;wght&quot; ${value}, &quot;wdth&quot; 65;`
           fontWidthValueEl.innerHTML = value;
+        });
+        fontSLNTInputEl.addEventListener("input", (ev) => {
+          const value = ev.target.value;
+          contentTextEl.style.fontWeight = value;
+          contentTextEl.style.fontVariationSettings = `&quot;slnt&quot; -${value}`
+          fontSLNTValueEl.innerHTML = value;
         });
         
         styleSelectEl.addEventListener("change", (ev) => {
