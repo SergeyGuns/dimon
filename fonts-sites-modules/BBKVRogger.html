@@ -145,7 +145,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: font-size .1s;
+        transition: font-weight .4s ease-in-out;
       }
   
       .select {
@@ -559,7 +559,8 @@
         });
         fontWidthInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
-          contentTextEl.style.fontVariationSettings = `&quot;wght&quot; ${value}, &quot;wdth&quot; 65;`
+          contentTextEl.style.fontWeight = value;
+          // contentTextEl.style.fontVariationSettings = `&quot;wght&quot; ${value}, &quot;wdth&quot; 65;`
           fontWidthValueEl.innerHTML = value;
         });
         
