@@ -592,6 +592,8 @@
         styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
           return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
         }).join("\n");
+        contentTextEl.style.fontFamily = `"${FONT_STYLE[0][0]}"`;
+        contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`
       </script>
     </div>
   </body>
