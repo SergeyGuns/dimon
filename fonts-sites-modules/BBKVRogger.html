@@ -581,7 +581,6 @@
         });
         fontSLNTInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
-          contentTextEl.style.fontWeight = value;
           contentTextEl.style.fontVariationSettings = `&quot;slnt&quot; -${value}`
           fontSLNTValueEl.innerHTML = value;
         });
