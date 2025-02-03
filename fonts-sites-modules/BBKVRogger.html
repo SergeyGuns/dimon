@@ -216,7 +216,7 @@
         min-width: 51%;
       }
 
-      #font_size {
+      .slider {
         align-items: center;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -229,17 +229,17 @@
         overflow: hidden;
         width: 110px;
       }
-      #font_size:focus {
+      .slider:focus {
         box-shadow: none;
         outline: none;
       }
-      #font_size::-webkit-slider-runnable-track {
+      .slider::-webkit-slider-runnable-track {
         background: var(--font-site-modules-main-color);
         content: "";
         height: 2px;
         pointer-events: none;
       }
-      #font_size::-webkit-slider-thumb {
+      .slider::-webkit-slider-thumb {
         height: 8px;
         width: 8px;
         -webkit-appearance: none;
@@ -249,11 +249,11 @@
         margin-top: -3px;
         border: 0px solid #777;
       }
-      #font_size::-moz-range-track {
+      .slider::-moz-range-track {
         width: 240px;
         height: 2px;
       }
-      #font_size::-moz-range-thumb {
+      .slider::-moz-range-thumb {
         height: 16px;
         width: 16px;
         background: var(--font-site-modules-main-color);
@@ -261,13 +261,13 @@
         border: 0px solid #777;
         position: relative;
       }
-      #font_size::-moz-range-progress {
+      .slider::-moz-range-progress {
         height: 2px;
         background: var(--font-site-modules-main-color);
         border: 0;
         margin-top: 0;
       }
-      #font_size::-ms-track {
+      .slider::-ms-track {
         background: transparent;
         border: 0;
         border-color: transparent;
@@ -278,22 +278,22 @@
         margin-top: 10px;
         width: 110px;
       }
-      #font_size::-ms-thumb {
+      .slider::-ms-thumb {
         height: 16px;
         width: 16px;
         background: var(--font-site-modules-main-color);
         border-radius: 8px;
         border: 0px solid #777;
       }
-      #font_size::-ms-fill-lower {
+      .slider::-ms-fill-lower {
         background: var(--font-site-modules-main-color);
         border-radius: 0;
       }
-      #font_size::-ms-fill-upper {
+      .slider::-ms-fill-upper {
         background: #c7c7c7;
         border-radius: 0;
       }
-      #font_size::-ms-tooltip {
+      .slider::-ms-tooltip {
         display: none;
       }
     </style>
@@ -446,6 +446,7 @@
             </label>
             <span style="width: 2rem; margin-left: 20px" id="font_size_value"></span>
             <input
+              class="slider"
               id="font_size"
               type="range"
               min="16"
@@ -455,6 +456,7 @@
             />
             <span style="width: 2rem; margin-left: 20px" id="font_width_value"></span>
             <input
+              class="slider"
               id="font_width"
               type="range"
               min="1"
@@ -557,7 +559,7 @@
         fontWidthInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
           contentTextEl.style.fontWidth = value;
-          fontSizeValueEl.innerHTML = value;
+          fontWidthValueEl.innerHTML = value;
         });
         styleSelectEl.addEventListener("change", (ev) => {
           contentTextEl.style.fontFamily = `"${ev.target.value}"`;
