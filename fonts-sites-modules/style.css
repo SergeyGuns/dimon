@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: font-weight .1s linear, font-size .1s linear;
+    transition: all .1s;
   }
 
   .select {
@@ -173,7 +173,7 @@
   }
   .info {
     font-family: 'Polanik_SLANTED-VF', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
   }
 
