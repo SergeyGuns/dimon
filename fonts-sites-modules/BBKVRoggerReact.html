@@ -1,0 +1,208 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="root"></div>
+    <style id="fonts_for_load"></style>
+    <script type="text/babel">
+        'use strict';
+
+        const FONT_STYLE = [
+            [
+                "Polanik_SLANTED-VF",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/Polanik_SLANTED-VF/Polanik_SLANTED-VF.ttf",
+            ],
+            [
+                "BBKV Polanik-VF",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVPolanikVF/BBKV%20Polanik-VF.ttf",
+            ],
+            [
+                "Extra Bold Stanted",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
+            ],
+            [
+                "Rogger",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
+            ],
+            [
+                "Medium",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Medium.ttf",
+            ],
+            [
+                "Regular",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Regular.ttf",
+            ],
+            [
+                "BBKV Wildfire",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf",
+            ],
+            [
+                "RobotoFlex",
+                "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/RobotoFlex/RobotoFlex.ttf",
+            ]
+        ];
+
+        const styleEl = document.querySelector("#fonts_for_load");
+        styleEl.innerHTML = FONT_STYLE.map(
+            ([name, link]) =>
+                `@font-face { 
+                font-family: '${name}'; 
+                src: url('${link}'); 
+            }`
+        ).join("\n");
+
+        const App = () => {
+            const [fontFamily, setFontFamily] = React.useState('Polanik_SLANTED-VF');
+            const [fontWeight, setFontWeight] = React.useState(0);
+            const [fontSLNT, setFontSLNT] = React.useState(0);
+            const [darkMode, setDarkMode] = React.useState(false);
+            const [alignState, setAlignState] = React.useState('left');
+            const [fontSize, setFontSize] = React.useState(60);
+            const [fontWidth, setFontWidth] = React.useState(500);
+
+            const settings = {  weight : 100 , slant : 0 }
+            const [styles, updateStyle] = React.useVariableFont("Polanik_SLANTED-VF", settings)
+
+            const toggleDarkMode = () => {
+                setDarkMode(!darkMode);
+            };
+
+            const toggleNextAlignState = () => {
+                const ALIGN_STATES = ['left', 'center', 'right'];
+                const cuttIndex = ALIGN_STATES.indexOf(alignState);
+                if (cuttIndex === ALIGN_STATES.length - 1) {
+                    setAlignState(ALIGN_STATES[0]);
+                } else {
+                    setAlignState(ALIGN_STATES[cuttIndex + 1]);
+                }
+            };
+
+            const handleFontSizeChange = (value) => {
+                setFontSize(value);
+            };
+
+            const handleFontWidthChange = (value) => {
+                updateStyle({weight:value});
+            };
+
+            const handleFontSLNTChange = (value) => {
+                updateStyle({slant:value});
+            };
+
+            const handleFontFamilyChange = (value) => {
+                setFontFamily(value);
+            }
+
+            return (
+                <div className="content">
+                    <div className="controls">
+                        <div style={{ width: '49%' }}>
+                            <div className="controls__left">
+                                <label htmlFor="slct" className="select">
+                                    <select onChange={(e) => handleFontFamilyChange(e.target.value)} name="FONT_STYLE" id="FONT_STYLE">
+                                        {FONT_STYLE.map(([style, link]) => (
+                                            <option key={style} style={{ fontFamily: style }} value={style}>
+                                                {style}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <svg>
+                                        <use xlinkHref="#select-arrow-down"></use>
+                                    </svg>
+                                </label>
+                                <span style={{ width: '2rem', marginLeft: '20px' }} id="font_size_value">
+                                    {fontSize}px
+                                </span>
+                                <input
+                                    className="slider"
+                                    id="font_size"
+                                    type="range"
+                                    min="16"
+                                    max="160"
+                                    step="4"
+                                    value={fontSize}
+                                    onChange={(e) => handleFontSizeChange(e.target.value)}
+                                />
+                                <span style={{ width: '2rem', marginLeft: '20px' }} id="font_width_value">
+                                    {fontWidth}
+                                </span>
+                                <input
+                                    className="slider"
+                                    id="font_width"
+                                    type="range"
+                                    min="1"
+                                    max="900"
+                                    step="10"
+                                    value={fontWidth}
+                                    onChange={(e) => handleFontWidthChange(e.target.value)}
+                                />
+                                <span style={{ width: '2rem', marginLeft: '20px' }} id="font_slnt_value">
+                                    {fontSLNT}
+                                </span>
+                                <input
+                                    className="slider"
+                                    id="font_slnt"
+                                    type="range"
+                                    min="1"
+                                    max="10"
+                                    step="1"
+                                    value={fontSLNT}
+                                    onChange={(e) => handleFontSLNTChange(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className="control__right">
+                            <div style={{ width: '27%' }} onClick={toggleNextAlignState}>
+                                <svg width="30" height="15">
+                                    <use id="align_icon" xlinkHref={`#${alignState}`}></use>
+                                </svg>
+                            </div>
+                            <div onClick={toggleDarkMode}>
+                                <svg
+                                    width="26"
+                                    height="11"
+                                    viewBox="0 0 27 11"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <circle
+                                        cx="5.5"
+                                        cy="5.5"
+                                        r="5.5"
+                                        fill={darkMode ? '#fdfcfc' : '#0D0613'}
+                                        stroke={darkMode ? '#0D0613' : '#fdfcfc'}
+                                    />
+                                    <circle
+                                        cx="20.5"
+                                        cy="5.5"
+                                        r="5"
+                                        stroke={darkMode ? '#0D0613' : '#fdfcfc'}
+                                        fill={darkMode ? '#fdfcfc' : '#0D0613'}
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_text">
+                        <div contentEditable="true" style={{ fontFamily, fontSize, fontVariationSettings: `"weight" ${fontWidth} , "slant" ${fontSLNT}`, fontStretch: `"weight" ${fontWidth} , "slant" ${fontSLNT}` }}>
+                            Сочетающую в себе красоту пустынных просторов, роскошь живописных гор и долин
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.querySelector('#root'));
+    </script>
+</body>
+
+</html>

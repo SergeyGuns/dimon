@@ -3,301 +3,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BBKVRogger</title>
-    <style>
-      /***
-    The new CSS reset - version 1.11 (last updated 20.9.2023)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
-
-      /*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
-    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
- */
-      *:where(
-          :not(html, iframe, canvas, img, svg, video, audio):not(
-              svg *,
-              symbol *
-            )
-        ) {
-        all: unset;
-        display: revert;
-      }
-
-      /* Preferred box-sizing value */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-
-      /* Fix mobile Safari increase font-size on landscape mode */
-      html {
-        -moz-text-size-adjust: none;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-      }
-
-      /* Reapply the pointer cursor for anchor tags */
-      a,
-      button {
-        cursor: revert;
-      }
-
-      /* Remove list styles (bullets/numbers) */
-      ol,
-      ul,
-      menu {
-        list-style: none;
-      }
-
-      /* For images to not be able to exceed their container */
-      img {
-        max-inline-size: 100%;
-        max-block-size: 100%;
-      }
-
-      /* removes spacing between cells in tables */
-      table {
-        border-collapse: collapse;
-      }
-
-      /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-      input,
-      textarea {
-        -webkit-user-select: auto;
-      }
-
-      /* revert the 'white-space' property for textarea elements on Safari */
-      textarea {
-        white-space: revert;
-      }
-
-      /* minimum style to allow to style meter element */
-      meter {
-        -webkit-appearance: revert;
-        appearance: revert;
-      }
-
-      /* preformatted text - use only for this feature */
-      :where(pre) {
-        all: revert;
-        box-sizing: border-box;
-      }
-
-      /* reset default text opacity of input placeholder */
-      ::placeholder {
-        color: unset;
-      }
-
-      /* remove default dot (•) sign */
-      ::marker {
-        content: initial;
-      }
-
-      /* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-      :where([hidden]) {
-        display: none;
-      }
-
-      /* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly.
-   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-      :where([contenteditable]:not([contenteditable="false"])) {
-        -moz-user-modify: read-write;
-        -webkit-user-modify: read-write;
-        overflow-wrap: break-word;
-        -webkit-line-break: after-white-space;
-        -webkit-user-select: auto;
-      }
-
-      /* apply back the draggable feature - exist only in Chromium and Safari */
-      :where([draggable="true"]) {
-        -webkit-user-drag: element;
-      }
-
-      /* Revert Modal native behavior */
-      :where(dialog:modal) {
-        all: revert;
-        box-sizing: border-box;
-      }
-    </style>
-    <style>
-      :root {
-        --font-site-modules-dark: #0d0613;
-        --font-site-modules-ligth: #fdfcfc;
-        --font-site-modules-main-color: var(--font-site-modules-dark);
-        --font-site-modules-main-bg-color: var(--font-site-modules-ligth);
-      }
-
-      .content {
-        /* стили для основного блока */
-        background-color: var(--font-site-modules-main-bg-color);
-        color: var(--font-site-modules-main-color);
-        font-family: "Roboto", sans-serif;
-        border: 1px solid #fafafa;
-        border-radius: 16px;
-        padding: 4%;
-      }
-      #content_text {
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: font-weight .1s linear, font-size .1s linear;
-      }
-  
-      .select {
-        position: relative;
-        display: block;
-        width: 120px;
-        text-wrap: nowrap;
-      }
-      .select svg {
-        position: absolute;
-        right: 12px;
-        top: calc(50% - 2px);
-        width: 10px;
-        height: 6px;
-        stroke-width: 2px;
-        stroke: var(--font-site-modules-main-color);
-        fill: none;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        pointer-events: none;
-      }
-      .select select {
-        -webkit-appearance: none;
-        padding: 7px 40px 7px 12px;
-        width: 100%;
-        border-radius: 5px;
-        background: var(--font-site-modules-main-bg-color);
-        cursor: pointer;
-        font-family: inherit;
-      }
-      .select select:required:invalid {
-      }
-      .select select option {
-        box-shadow: none;
-      }
-      .select select option[value=""][disabled] {
-        display: none;
-      }
-      .select select:focus {
-        outline: none;
-      }
-      .select select:hover + svg {
-        stroke: var(--font-site-modules-main-color);
-      }
-      .sprites {
-        position: absolute;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-        user-select: none;
-      }
-
-      .controls {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 11px;
-      }
-      .controls__left {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        font-size: 11px;
-      }
-      .control__right {
-        display: flex;
-        justify-content: space-between;
-        font-size: 11px;
-        /* min-width: 51%; */
-      }
-
-      .slider {
-        align-items: center;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background: none;
-        cursor: pointer;
-        display: flex;
-        height: 100%;
-        min-height: 50px;
-        overflow: hidden;
-        width: 110px;
-      }
-      .slider:focus {
-        box-shadow: none;
-        outline: none;
-      }
-      .slider::-webkit-slider-runnable-track {
-        background: var(--font-site-modules-main-color);
-        content: "";
-        height: 2px;
-        pointer-events: none;
-      }
-      .slider::-webkit-slider-thumb {
-        height: 8px;
-        width: 8px;
-        -webkit-appearance: none;
-        appearance: none;
-        background: var(--font-site-modules-main-color);
-        border-radius: 4px;
-        margin-top: -3px;
-        border: 0px solid #777;
-      }
-      .slider::-moz-range-track {
-        width: 240px;
-        height: 2px;
-      }
-      .slider::-moz-range-thumb {
-        height: 16px;
-        width: 16px;
-        background: var(--font-site-modules-main-color);
-        border-radius: 8px;
-        border: 0px solid #777;
-        position: relative;
-      }
-      .slider::-moz-range-progress {
-        height: 2px;
-        background: var(--font-site-modules-main-color);
-        border: 0;
-        margin-top: 0;
-      }
-      .slider::-ms-track {
-        background: transparent;
-        border: 0;
-        border-color: transparent;
-        border-radius: 0;
-        border-width: 0;
-        color: transparent;
-        height: 2px;
-        margin-top: 10px;
-        width: 110px;
-      }
-      .slider::-ms-thumb {
-        height: 16px;
-        width: 16px;
-        background: var(--font-site-modules-main-color);
-        border-radius: 8px;
-        border: 0px solid #777;
-      }
-      .slider::-ms-fill-lower {
-        background: var(--font-site-modules-main-color);
-        border-radius: 0;
-      }
-      .slider::-ms-fill-upper {
-        background: #c7c7c7;
-        border-radius: 0;
-      }
-      .slider::-ms-tooltip {
-        display: none;
-      }
-    </style>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <svg class="sprites">
       <style>
         path {
@@ -395,10 +102,6 @@
       [
         "Polanik_SLANTED-VF",
         "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/Polanik_SLANTED-VF/Polanik_SLANTED-VF.ttf",
-      ],
-      [
-        "BBKV Polanik-VF",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVPolanikVF/BBKV%20Polanik-VF.ttf",
       ],
       [
         "Extra Bold Stanted",
@@ -514,7 +217,7 @@
         </div>
       </div>
       <div id="content_text">
-        <div contenteditable="true">
+        <div id="font_style_el" contenteditable="true">
           Сочетающую в себе красоту пустынных просторов, роскошь живописных гор
           и долин
         </div>
@@ -545,6 +248,7 @@
         const fontSizeValueEl = document.querySelector("#font_size_value");
         const fontWidthValueEl = document.querySelector("#font_width_value");
         const fontSLNTValueEl = document.querySelector("#font_slnt_value");
+        const fontStyleEl = document.querySelector("#font_style_el");
         let alignState = ALIGN_STATES[0];
 
         toggleNextAlignState();
@@ -574,14 +278,21 @@
           contentTextEl.style.fontSize = value + "px";
           fontSizeValueEl.innerHTML = value + "px";
         });
+
+        function teplmateFonstVariations(slnt, wght) {
+          console.log(`font-variation-settings: weight ${wght} , slant -${slnt}`)
+          return `font-variation-settings: "wght" ${wght} , "slnt" ${slnt}`;
+        }
+
         fontWidthInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
-          contentTextEl.style.fontWeight = value;
+          fontStyleEl.setAttribute('style',teplmateFonstVariations(fontSLNTInputEl.value, value));
           fontWidthValueEl.innerHTML = value;
         });
+
         fontSLNTInputEl.addEventListener("input", (ev) => {
           const value = ev.target.value;
-          contentTextEl.style.fontVariationSettings = `&quot;slnt&quot; -${value}`
+          fontStyleEl.setAttribute('style', teplmateFonstVariations(value, fontWidthInputEl.value));
           fontSLNTValueEl.innerHTML = value;
         });
         
