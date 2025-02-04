@@ -1,311 +1,214 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BBKVRogger</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <svg class="sprites">
-      <style>
-        path {
-          stroke: var(--font-site-modules-main-color);
-        }
-      </style>
-      <symbol id="select-arrow-down" viewbox="0 0 10 6">
-        <polyline points="1 1 5 5 9 1"></polyline>
-      </symbol>
-      <symbol
-        width="22"
-        height="14"
-        viewBox="0 0 22 14"
-        fill="none"
-        id="left"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1 1H17"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M1 7H21"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M1 13H17"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol
-        width="22"
-        height="14"
-        viewBox="0 0 22 14"
-        fill="none"
-        id="center"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M5 1H17"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M1 7H21"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M5 13H17"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol
-        width="22"
-        height="14"
-        viewBox="0 0 22 14"
-        fill="none"
-        id="right"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10 1H21"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M1 7H21"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M10 13H21"
-          stroke="#0D0613"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </symbol>
-    </svg>
-  </head>
-  <script>
-    const FONT_STYLE = [
-      [
-        "Polanik_SLANTED-VF",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/Polanik_SLANTED-VF/Polanik_SLANTED-VF.ttf",
-      ],
-      [
-        "Extra Bold Stanted",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
-      ],
-      [
-        "Rogger",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
-      ],
-      [
-        "Medium",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Medium.ttf",
-      ],
-      [
-        "Regular",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Regular.ttf",
-      ],
-      [
-        "BBKV Wildfire",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf",
-      ],
-      [
-        "RobotoFlex",
-        "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/RobotoFlex/RobotoFlex.ttf",
-      ]
-    ];
-  </script>
-  <style id="fonts_for_load"></style>
 
-  <script>
-    const styleEl = document.querySelector("#fonts_for_load");
-    styleEl.innerHTML = FONT_STYLE.map(
-      ([name, link]) =>
-        `@font-face { 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBKVRogger</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <svg class="sprites">
+    <style>
+      path {
+        stroke: var(--font-site-modules-main-color);
+      }
+    </style>
+    <symbol id="select-arrow-down" viewbox="0 0 10 6">
+      <polyline points="1 1 5 5 9 1"></polyline>
+    </symbol>
+    <symbol width="22" height="14" viewBox="0 0 22 14" fill="none" id="left" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1H17" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M1 7H21" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M1 13H17" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+    </symbol>
+    <symbol width="22" height="14" viewBox="0 0 22 14" fill="none" id="center" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 1H17" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M1 7H21" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M5 13H17" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+    </symbol>
+    <symbol width="22" height="14" viewBox="0 0 22 14" fill="none" id="right" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 1H21" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M1 7H21" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+      <path d="M10 13H21" stroke="#0D0613" stroke-width="2" stroke-linecap="round" />
+    </symbol>
+  </svg>
+</head>
+<script>
+  const VALIABLE_FONTS = ["Polanik_SLANTED-VF"]
+  const FONT_STYLE = [
+    [
+      "Polanik_SLANTED-VF",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/Polanik_SLANTED-VF/Polanik_SLANTED-VF.ttf",
+    ],
+    [
+      "Extra Bold Stanted",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
+    ],
+    [
+      "Rogger",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVRogger/BBKV%20Rogger.ttf",
+    ],
+    [
+      "Medium",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Medium.ttf",
+    ],
+    [
+      "Regular",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVSecondSans/BBKV%20SecondSans%20Regular.ttf",
+    ],
+    [
+      "BBKV Wildfire",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/BBKVWildfire/BBKV Wildfire.ttf",
+    ],
+    [
+      "RobotoFlex",
+      "https://sergeyguns.github.io/dimon/fonts-sites-modules/assets/RobotoFlex/RobotoFlex.ttf",
+    ]
+  ];
+</script>
+<style id="fonts_for_load"></style>
+
+<script>
+  const styleEl = document.querySelector("#fonts_for_load");
+  styleEl.innerHTML = FONT_STYLE.map(
+    ([name, link]) =>
+      `@font-face { 
                 font-family: '${name}'; 
                 src: url('${link}'); 
             }`
-    ).join("\n");
-  </script>
-  <body>
-    <div class="content">
-      <div class="controls">
-        <div style="width: 49%">
-          <div class="controls__left">
-            <label for="slct" class="select">
-              <select name="FONT_STYLE" id="FONT_STYLE"></select>
-              <svg>
-                <use xlink:href="#select-arrow-down"></use>
-              </svg>
-            </label>
-            <span style="width: 2rem; margin-left: 20px" id="font_size_value"></span>
-            <input
-              class="slider"
-              id="font_size"
-              type="range"
-              min="16"
-              max="160"
-              step="4"
-              name=""
-            />
-            <span style="width: 2rem; margin-left: 20px" id="font_width_value"></span>
-            <input
-              class="slider"
-              id="font_width"
-              type="range"
-              min="1"
-              max="900"
-              step="10"
-              name=""
-            />
-            <span style="width: 2rem; margin-left: 20px" id="font_slnt_value"></span>
-            <input
-              class="slider"
-              id="font_slnt"
-              type="range"
-              min="1"
-              max="10"
-              step="1"
-              name=""
-            />
-          </div>
-        </div>
-        <div class="control__right">
-          <div style="width: 27%" onclick="toggleNextAlignState()">
-            <svg width="30" height="15">
-              <use id="align_icon" xlink:href="#right"></use>
+  ).join("\n");
+</script>
+
+<body>
+  <div class="content">
+    <div class="controls">
+      <div style="width: 49%">
+        <div class="controls__left">
+          <label for="slct" class="select">
+            <select name="FONT_STYLE" id="FONT_STYLE"></select>
+            <svg>
+              <use xlink:href="#select-arrow-down"></use>
             </svg>
-          </div>
-          <div onclick="toggleDarkMode()">
-            <svg
-              width="26"
-              height="11"
-              viewBox="0 0 27 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="5.5"
-                cy="5.5"
-                r="5.5"
-                fill="#0D0613"
-                stroke="#fdfcfc"
-              />
-              <circle
-                cx="20.5"
-                cy="5.5"
-                r="5"
-                stroke="#0D0613"
-                fill="#fdfcfc"
-              />
-            </svg>
-          </div>
+          </label>
+          <span style="width: 2rem; margin-left: 20px" id="font_size_value"></span>
+          <input class="slider" id="font_size" type="range" min="16" max="160" step="4" name="" />
+          <span class="variable" style="width: 2rem; margin-left: 20px" id="font_width_value"></span>
+          <input class="slider variable" id="font_width" type="range" min="1" max="900" step="10" name="" value="500" />
+          <span class="variable" style="width: 2rem; margin-left: 20px" id="font_slnt_value"></span>
+          <input class="slider variable" id="font_slnt" type="range" min="0" max="10" step="1" name="" />
         </div>
       </div>
-      <div id="content_text">
-        <div id="font_style_el" contenteditable="true">
-          Сочетающую в себе красоту пустынных просторов, роскошь живописных гор
-          и долин
+      <div class="control__right">
+        <div style="width: 27%" onclick="toggleNextAlignState()">
+          <svg width="30" height="15">
+            <use id="align_icon" xlink:href="#right"></use>
+          </svg>
+        </div>
+        <div onclick="toggleDarkMode()">
+          <svg width="26" height="11" viewBox="0 0 27 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5.5" cy="5.5" r="5.5" fill="#0D0613" stroke="#fdfcfc" />
+            <circle cx="20.5" cy="5.5" r="5" stroke="#0D0613" fill="#fdfcfc" />
+          </svg>
         </div>
       </div>
-
-      <script>
-        let darkMode = false;
-
-        function toggleDarkMode() {
-          const [dark, ligth] = ["#0D0613", "#fdfcfc"];
-          darkMode = !darkMode;
-          document.documentElement.style.setProperty(
-            "--font-site-modules-main-color",
-            darkMode
-              ? "var(--font-site-modules-ligth)"
-              : "var(--font-site-modules-dark)"
-          );
-          document.documentElement.style.setProperty(
-            "--font-site-modules-main-bg-color",
-            !darkMode
-              ? "var(--font-site-modules-ligth)"
-              : "var(--font-site-modules-dark)"
-          );
-        }
-        const contentTextEl = document.querySelector("#content_text");
-        const ALIGN_STATES = ["left", "center", "right"];
-        const alignIconEl = document.querySelector("#align_icon");
-        const fontSizeValueEl = document.querySelector("#font_size_value");
-        const fontWidthValueEl = document.querySelector("#font_width_value");
-        const fontSLNTValueEl = document.querySelector("#font_slnt_value");
-        const fontStyleEl = document.querySelector("#font_style_el");
-        let alignState = ALIGN_STATES[0];
-
-        toggleNextAlignState();
-        function toggleNextAlignState() {
-          const cuttIndex = ALIGN_STATES.indexOf(alignState);
-          if (cuttIndex === ALIGN_STATES.length - 1) {
-            alignState = ALIGN_STATES[0];
-          } else {
-            alignState = ALIGN_STATES[cuttIndex + 1];
-          }
-          alignIconEl.setAttribute("xlink:href", "#" + alignState);
-          contentTextEl.style.justifyContent = alignState;
-          contentTextEl.style.textAlign = alignState;
-        }
-        const fontSizeInputEl = document.querySelector("#font_size");
-        const fontWidthInputEl = document.querySelector("#font_width");
-        const fontSLNTInputEl = document.querySelector("#font_slnt");
-        const styleSelectEl = document.querySelector("#FONT_STYLE");
-        fontSizeInputEl.value = 60;
-        fontWidthInputEl.value = 500;
-        contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
-        fontSizeValueEl.innerHTML = fontSizeInputEl.value + "px";
-        fontWidthValueEl.innerHTML = fontWidthInputEl.value;
-        fontSLNTValueEl.innerHTML = fontSLNTInputEl.value;
-        fontSizeInputEl.addEventListener("input", (ev) => {
-          const value = ev.target.value;
-          contentTextEl.style.fontSize = value + "px";
-          fontSizeValueEl.innerHTML = value + "px";
-        });
-
-        function teplmateFonstVariations(slnt, wght) {
-          console.log(`font-variation-settings: weight ${wght} , slant -${slnt}`)
-          return `font-variation-settings: "wght" ${wght} , "slnt" ${slnt}`;
-        }
-
-        fontWidthInputEl.addEventListener("input", (ev) => {
-          const value = ev.target.value;
-          fontStyleEl.setAttribute('style',teplmateFonstVariations(fontSLNTInputEl.value, value));
-          fontWidthValueEl.innerHTML = value;
-        });
-
-        fontSLNTInputEl.addEventListener("input", (ev) => {
-          const value = ev.target.value;
-          fontStyleEl.setAttribute('style', teplmateFonstVariations(value, fontWidthInputEl.value));
-          fontSLNTValueEl.innerHTML = value;
-        });
-        
-        styleSelectEl.addEventListener("change", (ev) => {
-          contentTextEl.style.fontFamily = `"${ev.target.value}"`;
-          contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`;
-        });
-        styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
-          return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
-        }).join("\n");
-        contentTextEl.style.fontFamily = `"${FONT_STYLE[0][0]}"`;
-        contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`
-      </script>
     </div>
-  </body>
+    <div id="content_text">
+      <div id="font_style_el" contenteditable="true">
+        Сочетающую в себе красоту пустынных просторов, роскошь живописных гор
+        и долин
+      </div>
+    </div>
+
+    <script>
+      let darkMode = false;
+
+      function toggleDarkMode() {
+        const [dark, ligth] = ["#0D0613", "#fdfcfc"];
+        darkMode = !darkMode;
+        document.documentElement.style.setProperty(
+          "--font-site-modules-main-color",
+          darkMode
+            ? "var(--font-site-modules-ligth)"
+            : "var(--font-site-modules-dark)"
+        );
+        document.documentElement.style.setProperty(
+          "--font-site-modules-main-bg-color",
+          !darkMode
+            ? "var(--font-site-modules-ligth)"
+            : "var(--font-site-modules-dark)"
+        );
+      }
+      const contentTextEl = document.querySelector("#content_text");
+      const ALIGN_STATES = ["left", "center", "right"];
+      const alignIconEl = document.querySelector("#align_icon");
+      const fontSizeValueEl = document.querySelector("#font_size_value");
+      const fontWidthValueEl = document.querySelector("#font_width_value");
+      const fontSLNTValueEl = document.querySelector("#font_slnt_value");
+      const fontStyleEl = document.querySelector("#font_style_el");
+      let alignState = ALIGN_STATES[0];
+
+      toggleNextAlignState();
+      function toggleNextAlignState() {
+        const cuttIndex = ALIGN_STATES.indexOf(alignState);
+        if (cuttIndex === ALIGN_STATES.length - 1) {
+          alignState = ALIGN_STATES[0];
+        } else {
+          alignState = ALIGN_STATES[cuttIndex + 1];
+        }
+        alignIconEl.setAttribute("xlink:href", "#" + alignState);
+        contentTextEl.style.justifyContent = alignState;
+        contentTextEl.style.textAlign = alignState;
+      }
+      const fontSizeInputEl = document.querySelector("#font_size");
+      const fontWidthInputEl = document.querySelector("#font_width");
+      const fontSLNTInputEl = document.querySelector("#font_slnt");
+      const styleSelectEl = document.querySelector("#FONT_STYLE");
+      fontSizeInputEl.value = 60;
+      fontWidthInputEl.value = 500;
+      fontSLNTInputEl.value = 0
+      contentTextEl.style.fontSize = fontSizeInputEl.value + "px";
+      fontSizeValueEl.innerHTML = fontSizeInputEl.value + "px";
+      fontWidthValueEl.innerHTML = fontWidthInputEl.value;
+      fontSLNTValueEl.innerHTML = fontSLNTInputEl.value;
+      fontSizeInputEl.addEventListener("input", (ev) => {
+        const value = ev.target.value;
+        contentTextEl.style.fontSize = value + "px";
+        fontSizeValueEl.innerHTML = value + "px";
+      });
+
+      function teplmateFonstVariations(slnt, wght) {
+        console.log(`font-variation-settings: weight ${wght} , slant -${slnt}`)
+        return `font-variation-settings: "wght" ${wght} , "slnt" ${slnt}`;
+      }
+
+      fontWidthInputEl.addEventListener("input", (ev) => {
+        const value = ev.target.value;
+        fontStyleEl.setAttribute('style', teplmateFonstVariations(fontSLNTInputEl.value, value));
+        fontWidthValueEl.innerHTML = value;
+      });
+
+      fontSLNTInputEl.addEventListener("input", (ev) => {
+        const value = ev.target.value;
+        fontStyleEl.setAttribute('style', teplmateFonstVariations(value, fontWidthInputEl.value));
+        fontSLNTValueEl.innerHTML = value;
+      });
+      const isValiableFont = (currFont, fonts) => {
+        return fonts.includes(currFont);
+      }
+      styleSelectEl.addEventListener("change", (ev) => {
+        console.log(ev.target.value, isValiableFont(ev.target.value, VALIABLE_FONTS))
+        document.querySelectorAll('.variable').forEach(el =>{
+          el.style.display = isValiableFont(ev.target.value, VALIABLE_FONTS) ? "" : "none";
+        });
+        contentTextEl.style.fontFamily = `"${ev.target.value}"`;
+        contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`;
+      });
+      styleSelectEl.innerHTML = FONT_STYLE.map(([style, link]) => {
+        return `<option style="font-family: '${style}'" value="${style}"> ${style} </options>`;
+      }).join("\n");
+      contentTextEl.style.fontFamily = `"${FONT_STYLE[0][0]}"`;
+      contentTextEl.style.fontSize = `${fontSizeInputEl.value}px`
+    </script>
+  </div>
+</body>
+
 </html>
